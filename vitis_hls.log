@@ -1,0 +1,35 @@
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vitis_HLS/2020.2/bin/unwrapped/win64.o/vitis_hls.exe'
+INFO: [HLS 200-10] For user 'menuw' on host 'ransara-laptop' (Windows NT_amd64 version 6.2) on Sat May 22 21:50:02 +0530 2021
+INFO: [HLS 200-10] In directory 'C:/Users/menuw/Documents/research/SHA256/hls'
+Sourcing Tcl script 'C:/Users/menuw/Documents/research/SHA256/hls/sha256/solution1/csim.tcl'
+INFO: [HLS 200-1510] Running: open_project sha256 
+INFO: [HLS 200-10] Opening project 'C:/Users/menuw/Documents/research/SHA256/hls/sha256'.
+INFO: [HLS 200-1510] Running: add_files sha256.cpp 
+INFO: [HLS 200-10] Adding design file 'sha256.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files sha256.h 
+INFO: [HLS 200-10] Adding design file 'sha256.h' to the project
+INFO: [HLS 200-1510] Running: add_files -tb shatest.cpp -cflags -DHW_COSIM 
+INFO: [HLS 200-10] Adding test bench file 'shatest.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution 'C:/Users/menuw/Documents/research/SHA256/hls/sha256/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../shatest.cpp in debug mode
+   Compiling ../../../../sha256.cpp in debug mode
+   Generating csim.exe
+result 1 is
+BA7816BF8F01CFEA414140DE5DAE2223B00361A396177A9CB410FF61F20015AD
+result 2 is
+97DAAC0EE9998DFCAD6C9C0970DA5CA411C86233A944C25B47566F6A7BC1DDD5
+result 3 is
+D66304B6180365E47C858F6C84D3DA065CAF4B3350C9F45277A1AF82E3DBB055INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.685 seconds; current allocated memory: 191.554 MB.
