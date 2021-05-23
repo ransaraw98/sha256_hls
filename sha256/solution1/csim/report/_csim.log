@@ -1,6 +1,5 @@
 INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
-   Compiling ../../../../shatest.cpp in debug mode
    Compiling ../../../../sha256.cpp in debug mode
    Generating csim.exe
 result 1 is

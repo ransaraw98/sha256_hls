@@ -41,7 +41,7 @@ static const WORD k[64] = {
 };
 
 /*********************** FUNCTION DEFINITIONS ***********************/
-void sha256_transform(SHA256_CTX *ctx, const BYTE data[])
+void compress(SHA256_CTX *ctx, const BYTE data[])
 {
 	WORD a, b, c, d, e, f, g, h, i, j, t1, t2, m[64];
 
@@ -99,8 +99,10 @@ void sha256_init(SHA256_CTX *ctx)
 	ctx->state[6] = 0x1f83d9ab;
 	ctx->state[7] = 0x5be0cd19;
 }
-
-void sha256_update(SHA256_CTX *ctx, const BYTE data[], size_t len)
+//CREATING MSG BLOCKS
+/*this function puts 64byte (512bits of the message into the struct's location to store data
+ * and sends it to the compression function, if there's more another block will be sent */
+void pad(SHA256_CTX *ctx, const BYTE data[], size_t len)
 {
 	WORD i;
 
@@ -108,7 +110,7 @@ void sha256_update(SHA256_CTX *ctx, const BYTE data[], size_t len)
 		ctx->data[ctx->datalen] = data[i];
 		ctx->datalen++;
 		if (ctx->datalen == 64) {
-			sha256_transform(ctx, ctx->data);
+			compress(ctx, ctx->data);
 			ctx->bitlen += 512;
 			ctx->datalen = 0;
 		}
@@ -131,7 +133,7 @@ void sha256_final(SHA256_CTX *ctx, BYTE hash[])
 		ctx->data[i++] = 0x80;  
 		while (i < 64)
 			ctx->data[i++] = 0x00;	
-		sha256_transform(ctx, ctx->data);
+		compress(ctx, ctx->data);
 		memset(ctx->data, 0, 56);
 	}
 
@@ -145,7 +147,7 @@ void sha256_final(SHA256_CTX *ctx, BYTE hash[])
 	ctx->data[58] = ctx->bitlen >> 40;
 	ctx->data[57] = ctx->bitlen >> 48;
 	ctx->data[56] = ctx->bitlen >> 56;
-	sha256_transform(ctx, ctx->data);
+	compress(ctx, ctx->data);
 
 	//this shouldnt be synthesized
 	// Since this implementation uses little endian byte ordering and SHA uses big endian,
@@ -160,4 +162,11 @@ void sha256_final(SHA256_CTX *ctx, BYTE hash[])
 		hash[i + 24] = (ctx->state[6] >> (24 - i * 8)) & 0x000000ff;
 		hash[i + 28] = (ctx->state[7] >> (24 - i * 8)) & 0x000000ff;
 	}
+
+}
+void sha256(SHA256_CTX *ctx, const BYTE text[]){
+	BYTE buf[SHA256_BLOCK_SIZE];
+	sha256_init(&*ctx);
+	pad(&*ctx, text,(sizeof(text)-1));
+	sha256_final(&*ctx, buf);
 }

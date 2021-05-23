@@ -1,4 +1,4 @@
-<project xmlns="com.autoesl.autopilot.project" top="" name="sha256">
+<project xmlns="com.autoesl.autopilot.project" top="sha256" name="sha256">
     <includePaths/>
     <libraryPaths/>
     <Simulation>

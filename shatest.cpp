@@ -34,9 +34,8 @@ int sha256_test()
 	SHA256_CTX ctx;
 	int idx;
 	int pass = 1;
-
 	sha256_init(&ctx);
-	sha256_update(&ctx, text1,(sizeof(text1)-1));
+	pad(&ctx, text1,(sizeof(text1)-1));
 	sha256_final(&ctx, buf);
     printf("result 1 is\n");
 	for(int i=0; i<SHA256_BLOCK_SIZE;i++){
@@ -44,7 +43,7 @@ int sha256_test()
 	}
 
 	sha256_init(&ctx);
-	sha256_update(&ctx, text2, (sizeof(text2)-1));
+	pad(&ctx, text2, (sizeof(text2)-1));
 	sha256_final(&ctx, buf);
     printf("\nresult 2 is\n");
 	for(int i=0; i<SHA256_BLOCK_SIZE;i++){
@@ -52,7 +51,7 @@ int sha256_test()
 	}
 
 	sha256_init(&ctx);
-	sha256_update(&ctx, text3, (sizeof(text3)-1));
+	pad(&ctx, text3, (sizeof(text3)-1));
 	sha256_final(&ctx, buf);
     printf("\nresult 3 is\n");
 	for(int i=0; i<SHA256_BLOCK_SIZE;i++){

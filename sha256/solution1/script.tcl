@@ -4,6 +4,7 @@
 ## Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ############################################################
 open_project sha256
+set_top sha256
 add_files sha256.cpp
 add_files sha256.h
 add_files -tb shatest.cpp -cflags "-DHW_COSIM"
