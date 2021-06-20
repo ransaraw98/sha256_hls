@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+  <sourceFile>
+    <directive functionName="compress" label="compress_loop_1" functionLabel="">
+      <pragma name="UNROLL"/>
+    </directive>
+    <directive functionName="compress" label="compress_loop_2" functionLabel="">
+      <pragma name="PIPELINE"/>
+    </directive>
+    <directive functionName="compress" label="compress_loop_3" functionLabel="">
+      <pragma name="UNROLL"/>
+    </directive>
+    <directive functionName="pad" label="padding1" functionLabel="">
+      <pragma name="UNROLL"/>
+    </directive>
+    <directive functionName="sha256" label="" functionLabel="">
+      <pragma name="TOP">
+        <option name="name" value="sha256"/>
+      </pragma>
+    </directive>
+  </sourceFile>
+</AutoPilot:ProjectResources>

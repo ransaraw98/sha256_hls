@@ -45,12 +45,13 @@ void compress(SHA256_CTX *ctx, const BYTE data[])
 {
 	WORD a, b, c, d, e, f, g, h, i, j, t1, t2, m[64];
 
-	for (i = 0, j = 0; i < 16; ++i, j += 4)
+	compress_loop_1:for (i = 0, j = 0; i < 16; ++i, j += 4)
+		// this can be removed if needed
 		m[i] = (data[j] << 24) | (data[j + 1] << 16) | (data[j + 2] << 8) | (data[j + 3]); // data has 64 bytes, convert them to WORDS and store in m
-	for ( ; i < 64; ++i)
+	compress_loop_2:for ( ; i < 64; ++i)
 		m[i] = SIG1(m[i - 2]) + m[i - 7] + SIG0(m[i - 15]) + m[i - 16]; // create the rest of the schedule
 
-//initialization
+//initialization , is it possible to do these in parallel?
 	a = ctx->state[0];
 	b = ctx->state[1];
 	c = ctx->state[2];
@@ -61,7 +62,7 @@ void compress(SHA256_CTX *ctx, const BYTE data[])
 	h = ctx->state[7];
 
 //compression
-	for (i = 0; i < 64; ++i) {
+	compress_loop_3:for (i = 0; i < 64; ++i) {
 		t1 = h + EP1(e) + CH(e,f,g) + k[i] + m[i];
 		t2 = EP0(a) + MAJ(a,b,c);
 		h = g;
@@ -106,7 +107,7 @@ void pad(SHA256_CTX *ctx, const BYTE data[], size_t len)
 {
 	WORD i;
 
-	for (i = 0; i < len; ++i) {
+	padding1:for (i = 0; i < len; ++i) {
 		ctx->data[ctx->datalen] = data[i];
 		ctx->datalen++;
 		if (ctx->datalen == 64) {
@@ -126,12 +127,12 @@ void sha256_final(SHA256_CTX *ctx, BYTE hash[])
 	// Pad whatever data is left in the buffer.
 	if (ctx->datalen < 56) {
 		ctx->data[i++] = 0x80; 	//this passes 10000000 in, FIRST BYTE
-		while (i < 56)
+		sha_final_loop_1:while (i < 56)  //parallelized
 			ctx->data[i++] = 0x00;	//fill the rest of the bytes upto 56th with 00000000
 	}
 	else {
 		ctx->data[i++] = 0x80;  
-		while (i < 64)
+		sha_final_loop_2:while (i < 64) //parallelized
 			ctx->data[i++] = 0x00;	
 		compress(ctx, ctx->data);
 		memset(ctx->data, 0, 56);
@@ -147,12 +148,14 @@ void sha256_final(SHA256_CTX *ctx, BYTE hash[])
 	ctx->data[58] = ctx->bitlen >> 40;
 	ctx->data[57] = ctx->bitlen >> 48;
 	ctx->data[56] = ctx->bitlen >> 56;
+
+
 	compress(ctx, ctx->data);
 
-	//this shouldnt be synthesized
+	//this shouldn't be synthesized
 	// Since this implementation uses little endian byte ordering and SHA uses big endian,
 	// reverse all the bytes when copying the final state to the output hash.
-	for (i = 0; i < 4; ++i) {
+	sha_final_loop_3:for (i = 0; i < 4; ++i) {  //parallelized
 		hash[i]      = (ctx->state[0] >> (24 - i * 8)) & 0x000000ff;
 		hash[i + 4]  = (ctx->state[1] >> (24 - i * 8)) & 0x000000ff;
 		hash[i + 8]  = (ctx->state[2] >> (24 - i * 8)) & 0x000000ff;

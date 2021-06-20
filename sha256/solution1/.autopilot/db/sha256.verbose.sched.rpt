@@ -1,0 +1,178 @@
+
+
+================================================================
+== Vitis HLS Report for 'sha256'
+================================================================
+* Date:           Mon May 24 20:11:42 2021
+
+* Version:        2020.2 (Build 3064766 on Wed Nov 18 09:12:45 MST 2020)
+* Project:        sha256
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu11p-flga2577-1-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.289 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|     none|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 7
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.73>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%buf = alloca i64 1"   --->   Operation 8 'alloca' 'buf' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%ctx_addr = getelementptr i64 %ctx, i64 0, i64 8" [sha256.cpp:91]   --->   Operation 9 'getelementptr' 'ctx_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.73ns)   --->   "%store_ln91 = store void @_ssdm_op_Write.bram.p0i64, i4 %ctx_addr, i64 0, i8 15" [sha256.cpp:91]   --->   Operation 10 'store' 'store_ln91' <Predicate = true> <Delay = 0.73> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 14> <RAM>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%ctx_addr_11 = getelementptr i64 %ctx, i64 0, i64 9" [sha256.cpp:92]   --->   Operation 11 'getelementptr' 'ctx_addr_11' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.73ns)   --->   "%store_ln92 = store void @_ssdm_op_Write.bram.i64, i4 %ctx_addr_11, i64 0, i8 255" [sha256.cpp:92]   --->   Operation 12 'store' 'store_ln92' <Predicate = true> <Delay = 0.73> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 14> <RAM>
+
+State 2 <SV = 1> <Delay = 0.73>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%ctx_addr_12 = getelementptr i64 %ctx, i64 0, i64 10" [sha256.cpp:93]   --->   Operation 13 'getelementptr' 'ctx_addr_12' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (0.73ns)   --->   "%store_ln94 = store void @_ssdm_op_Write.bram.i64, i4 %ctx_addr_12, i64 13503953895726638695, i8 255" [sha256.cpp:94]   --->   Operation 14 'store' 'store_ln94' <Predicate = true> <Delay = 0.73> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 14> <RAM>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%ctx_addr_13 = getelementptr i64 %ctx, i64 0, i64 11" [sha256.cpp:95]   --->   Operation 15 'getelementptr' 'ctx_addr_13' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.73ns)   --->   "%store_ln96 = store void @_ssdm_op_Write.bram.i64, i4 %ctx_addr_13, i64 11912009169889063794, i8 255" [sha256.cpp:96]   --->   Operation 16 'store' 'store_ln96' <Predicate = true> <Delay = 0.73> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 14> <RAM>
+
+State 3 <SV = 2> <Delay = 0.73>
+ST_3 : Operation 17 [1/1] (0.00ns)   --->   "%ctx_addr_14 = getelementptr i64 %ctx, i64 0, i64 12" [sha256.cpp:97]   --->   Operation 17 'getelementptr' 'ctx_addr_14' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 18 [1/1] (0.73ns)   --->   "%store_ln98 = store void @_ssdm_op_Write.bram.i64, i4 %ctx_addr_14, i64 11170449402626986623, i8 255" [sha256.cpp:98]   --->   Operation 18 'store' 'store_ln98' <Predicate = true> <Delay = 0.73> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 14> <RAM>
+ST_3 : Operation 19 [1/1] (0.00ns)   --->   "%ctx_addr_15 = getelementptr i64 %ctx, i64 0, i64 13" [sha256.cpp:99]   --->   Operation 19 'getelementptr' 'ctx_addr_15' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 20 [1/1] (0.73ns)   --->   "%store_ln100 = store void @_ssdm_op_Write.bram.i64, i4 %ctx_addr_15, i64 6620516960021240235, i8 255" [sha256.cpp:100]   --->   Operation 20 'store' 'store_ln100' <Predicate = true> <Delay = 0.73> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 14> <RAM>
+
+State 4 <SV = 3> <Delay = 1.52>
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "%text_read = read i8 @_ssdm_op_Read.ap_auto.i8P0A, i8 %text_r" [sha256.cpp:172]   --->   Operation 21 'read' 'text_read' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 22 [2/2] (1.52ns)   --->   "%call_ln172 = call void @pad, i64 %ctx, i8 %text_read" [sha256.cpp:172]   --->   Operation 22 'call' 'call_ln172' <Predicate = true> <Delay = 1.52> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 23 [1/2] (0.00ns)   --->   "%call_ln172 = call void @pad, i64 %ctx, i8 %text_read" [sha256.cpp:172]   --->   Operation 23 'call' 'call_ln172' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 6 <SV = 5> <Delay = 0.00>
+ST_6 : Operation 24 [2/2] (0.00ns)   --->   "%call_ln173 = call void @sha256_final, i64 %ctx, i8 %buf" [sha256.cpp:173]   --->   Operation 24 'call' 'call_ln173' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 7 <SV = 6> <Delay = 0.00>
+ST_7 : Operation 25 [1/1] (0.00ns)   --->   "%spectopmodule_ln0 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_2"   --->   Operation 25 'spectopmodule' 'spectopmodule_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 26 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %ctx, void @empty, i32 0, i32 0, void @empty_0, i32 4294967295, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 26 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 27 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i64 %ctx"   --->   Operation 27 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 28 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i8 %text_r"   --->   Operation 28 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 29 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %text_r, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 29 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 30 [1/1] (0.00ns)   --->   "%specbramwithbyteenable_ln0 = specbramwithbyteenable void @_ssdm_op_SpecBRAMWithByteEnable, i64 %ctx"   --->   Operation 30 'specbramwithbyteenable' 'specbramwithbyteenable_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 31 [1/2] (0.00ns)   --->   "%call_ln173 = call void @sha256_final, i64 %ctx, i8 %buf" [sha256.cpp:173]   --->   Operation 31 'call' 'call_ln173' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_7 : Operation 32 [1/1] (0.00ns)   --->   "%ret_ln174 = ret" [sha256.cpp:174]   --->   Operation 32 'ret' 'ret_ln174' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 0.73ns
+The critical path consists of the following:
+	'getelementptr' operation ('ctx_addr', sha256.cpp:91) [10]  (0 ns)
+	'store' operation ('store_ln91', sha256.cpp:91) of constant <constant:_ssdm_op_Write.bram.p0i64> on array 'ctx' [11]  (0.73 ns)
+
+ <State 2>: 0.73ns
+The critical path consists of the following:
+	'getelementptr' operation ('ctx_addr_12', sha256.cpp:93) [14]  (0 ns)
+	'store' operation ('store_ln94', sha256.cpp:94) of constant <constant:_ssdm_op_Write.bram.i64> on array 'ctx' [15]  (0.73 ns)
+
+ <State 3>: 0.73ns
+The critical path consists of the following:
+	'getelementptr' operation ('ctx_addr_14', sha256.cpp:97) [18]  (0 ns)
+	'store' operation ('store_ln98', sha256.cpp:98) of constant <constant:_ssdm_op_Write.bram.i64> on array 'ctx' [19]  (0.73 ns)
+
+ <State 4>: 1.53ns
+The critical path consists of the following:
+	wire read on port 'text_r' (sha256.cpp:172) [22]  (0 ns)
+	'call' operation ('call_ln172', sha256.cpp:172) to 'pad' [23]  (1.53 ns)
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+ <State 7>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -42,7 +42,7 @@ int sha256_test()
 		printf("%02X",buf[i]);
 	}
 
-	sha256_init(&ctx);
+	/*sha256_init(&ctx);
 	pad(&ctx, text2, (sizeof(text2)-1));
 	sha256_final(&ctx, buf);
     printf("\nresult 2 is\n");
@@ -56,7 +56,7 @@ int sha256_test()
     printf("\nresult 3 is\n");
 	for(int i=0; i<SHA256_BLOCK_SIZE;i++){
 		printf("%02X",buf[i]);
-	}
+	} */
 
 	return(pass);
 }

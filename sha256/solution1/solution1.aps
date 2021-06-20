@@ -5,6 +5,18 @@
     <downStreamTool>
         <DownStreamTool name=""/>
     </downStreamTool>
+    <targetInfo>
+        <TargetInfo value="xcvu11p:-flga2577:-1-e"/>
+    </targetInfo>
+    <libraryList>
+        <library name="DefaultPlatform" value="xilinx/Virtex-7/Virtex-7"/>
+        <library name="DefaultPlatform" value="xilinx/Virtex-7/Virtex-7_fpv7"/>
+        <library name="DefaultPlatform" value="xilinx/virtexuplus/virtexuplus"/>
+    </libraryList>
+    <flowTarget value="vivado"/>
+    <clockList>
+        <clock default="false" name="default" period="10"/>
+    </clockList>
     <config/>
     <UIConfigurations>
         <UIAutosynConf hideTrivialOp="true" isBasedOnBoard="false" isSolutionDirty="true" isStopAskAgain="false" showDetailDesignViewer="false">
@@ -60,18 +72,5 @@
     <project>
         <value string="sha256"/>
     </project>
-    <flowTarget value="vivado"/>
-    <targetInfo>
-        <TargetInfo value="xcvu11p:-flga2577:-1-e"/>
-    </targetInfo>
-    <libraryList>
-        <library name="DefaultPlatform" value="xilinx/Virtex-7/Virtex-7"/>
-        <library name="DefaultPlatform" value="xilinx/Virtex-7/Virtex-7_fpv7"/>
-        <library name="DefaultPlatform" value="xilinx/virtexuplus/virtexuplus"/>
-        <library value="xilinx/virtexuplus/virtexuplus" name="DefaultPlatform"/>
-    </libraryList>
-    <clockList>
-        <clock name="default" default="false" period="10"/>
-    </clockList>
 </solution>
 

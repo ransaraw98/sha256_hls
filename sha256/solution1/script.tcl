@@ -5,13 +5,13 @@
 ############################################################
 open_project sha256
 set_top sha256
-add_files sha256.cpp
 add_files sha256.h
-add_files -tb shatest.cpp -cflags "-DHW_COSIM"
+add_files sha256.cpp
+add_files -tb shatest.cpp -cflags "-DHW_COSIM -Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 open_solution "solution1" -flow_target vivado
 set_part {xcvu11p-flga2577-1-e}
 create_clock -period 10 -name default
-#source "./sha256/solution1/directives.tcl"
+source "./sha256/solution1/directives.tcl"
 csim_design
 csynth_design
 cosim_design
