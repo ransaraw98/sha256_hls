@@ -1,0 +1,786 @@
+<profile>
+    <ReportVersion>
+        <Version>2020.2</Version>
+    </ReportVersion>
+    <UserAssignments>
+        <unit>ns</unit>
+        <ProductFamily>virtexuplus</ProductFamily>
+        <Part>xcvu11p-flga2577-1-e</Part>
+        <TopModelName>sha256</TopModelName>
+        <TargetClockPeriod>10.00</TargetClockPeriod>
+        <ClockUncertainty>2.70</ClockUncertainty>
+        <FlowTarget>vivado</FlowTarget>
+    </UserAssignments>
+    <PerformanceEstimates>
+        <PipelineType>none</PipelineType>
+        <SummaryOfTimingAnalysis>
+            <unit>ns</unit>
+            <EstimatedClockPeriod>4.643</EstimatedClockPeriod>
+        </SummaryOfTimingAnalysis>
+        <SummaryOfOverallLatency>
+            <unit>clock cycles</unit>
+            <Best-caseLatency>153</Best-caseLatency>
+            <Average-caseLatency>153</Average-caseLatency>
+            <Worst-caseLatency>153</Worst-caseLatency>
+            <Best-caseRealTimeLatency>1.530 us</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>1.530 us</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>1.530 us</Worst-caseRealTimeLatency>
+            <Interval-min>154</Interval-min>
+            <Interval-max>154</Interval-max>
+        </SummaryOfOverallLatency>
+        <SummaryOfLoopLatency>
+            <convert_to_words>
+                <TripCount>16</TripCount>
+                <Latency>16</Latency>
+                <AbsoluteTimeLatency>160</AbsoluteTimeLatency>
+                <PipelineII>1</PipelineII>
+                <PipelineDepth>1</PipelineDepth>
+            </convert_to_words>
+            <create_schedule>
+                <TripCount>48</TripCount>
+                <Latency>48</Latency>
+                <AbsoluteTimeLatency>480</AbsoluteTimeLatency>
+                <PipelineII>1</PipelineII>
+                <PipelineDepth>2</PipelineDepth>
+            </create_schedule>
+            <compression>
+                <TripCount>64</TripCount>
+                <Latency>65</Latency>
+                <AbsoluteTimeLatency>650</AbsoluteTimeLatency>
+                <PipelineII>1</PipelineII>
+                <PipelineDepth>2</PipelineDepth>
+            </compression>
+            <convert_endianess>
+                <TripCount>4</TripCount>
+                <Latency>16</Latency>
+                <AbsoluteTimeLatency>160</AbsoluteTimeLatency>
+                <PipelineII>4</PipelineII>
+                <PipelineDepth>4</PipelineDepth>
+            </convert_endianess>
+        </SummaryOfLoopLatency>
+    </PerformanceEstimates>
+    <AreaEstimates>
+        <Resources>
+            <BRAM_18K>9</BRAM_18K>
+            <FF>416</FF>
+            <LUT>1404</LUT>
+            <DSP>0</DSP>
+            <URAM>0</URAM>
+        </Resources>
+        <AvailableResources>
+            <BRAM_18K>4032</BRAM_18K>
+            <DSP>9216</DSP>
+            <FF>2592000</FF>
+            <LUT>1296000</LUT>
+            <URAM>960</URAM>
+        </AvailableResources>
+    </AreaEstimates>
+    <InterfaceSummary>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>sha256</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst</name>
+            <Object>sha256</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_start</name>
+            <Object>sha256</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_done</name>
+            <Object>sha256</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_idle</name>
+            <Object>sha256</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_ready</name>
+            <Object>sha256</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>stateREG_i</name>
+            <Object>stateREG</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_ovld</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>stateREG_o</name>
+            <Object>stateREG</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_ovld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>stateREG_o_ap_vld</name>
+            <Object>stateREG</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_ovld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>data</name>
+            <Object>data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>8</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>hash_address0</name>
+            <Object>hash</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>5</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>hash_ce0</name>
+            <Object>hash</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>hash_we0</name>
+            <Object>hash</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>hash_d0</name>
+            <Object>hash</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>8</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>hash_address1</name>
+            <Object>hash</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>5</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>hash_ce1</name>
+            <Object>hash</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>hash_we1</name>
+            <Object>hash</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>hash_d1</name>
+            <Object>hash</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>8</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+    </InterfaceSummary>
+    <RTLDesignHierarchy>
+        <TopModule>
+            <ModuleName>sha256</ModuleName>
+        </TopModule>
+    </RTLDesignHierarchy>
+    <ModuleInformation>
+        <Module>
+            <Name>sha256</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>4.643</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>153</Best-caseLatency>
+                    <Average-caseLatency>153</Average-caseLatency>
+                    <Worst-caseLatency>153</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>1.530 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>1.530 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>1.530 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>154</PipelineInitiationInterval>
+                    <PipelineType>none</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <convert_to_words>
+                        <Name>convert_to_words</Name>
+                        <TripCount>16</TripCount>
+                        <Latency>16</Latency>
+                        <AbsoluteTimeLatency>0.160 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                    </convert_to_words>
+                    <create_schedule>
+                        <Name>create_schedule</Name>
+                        <TripCount>48</TripCount>
+                        <Latency>48</Latency>
+                        <AbsoluteTimeLatency>0.480 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>2</PipelineDepth>
+                    </create_schedule>
+                    <compression>
+                        <Name>compression</Name>
+                        <TripCount>64</TripCount>
+                        <Latency>65</Latency>
+                        <AbsoluteTimeLatency>0.650 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>2</PipelineDepth>
+                    </compression>
+                    <convert_endianess>
+                        <Name>convert_endianess</Name>
+                        <TripCount>4</TripCount>
+                        <Latency>16</Latency>
+                        <AbsoluteTimeLatency>0.160 us</AbsoluteTimeLatency>
+                        <PipelineII>4</PipelineII>
+                        <PipelineDepth>4</PipelineDepth>
+                    </convert_endianess>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>9</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>~0</UTIL_BRAM>
+                    <FF>416</FF>
+                    <AVAIL_FF>2592000</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>1404</LUT>
+                    <AVAIL_LUT>1296000</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9216</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <InterfaceSummary>
+                <RtlPorts>
+                    <name>ap_clk</name>
+                    <Object>sha256</Object>
+                    <Type>return value</Type>
+                    <Scope/>
+                    <IOProtocol>ap_ctrl_hs</IOProtocol>
+                    <IOConfig/>
+                    <Dir>in</Dir>
+                    <Bits>1</Bits>
+                    <Attribute>control</Attribute>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>ap_rst</name>
+                    <Object>sha256</Object>
+                    <Type>return value</Type>
+                    <Scope/>
+                    <IOProtocol>ap_ctrl_hs</IOProtocol>
+                    <IOConfig/>
+                    <Dir>in</Dir>
+                    <Bits>1</Bits>
+                    <Attribute>control</Attribute>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>ap_start</name>
+                    <Object>sha256</Object>
+                    <Type>return value</Type>
+                    <Scope/>
+                    <IOProtocol>ap_ctrl_hs</IOProtocol>
+                    <IOConfig/>
+                    <Dir>in</Dir>
+                    <Bits>1</Bits>
+                    <Attribute>control</Attribute>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>ap_done</name>
+                    <Object>sha256</Object>
+                    <Type>return value</Type>
+                    <Scope/>
+                    <IOProtocol>ap_ctrl_hs</IOProtocol>
+                    <IOConfig/>
+                    <Dir>out</Dir>
+                    <Bits>1</Bits>
+                    <Attribute>control</Attribute>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>ap_idle</name>
+                    <Object>sha256</Object>
+                    <Type>return value</Type>
+                    <Scope/>
+                    <IOProtocol>ap_ctrl_hs</IOProtocol>
+                    <IOConfig/>
+                    <Dir>out</Dir>
+                    <Bits>1</Bits>
+                    <Attribute>control</Attribute>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>ap_ready</name>
+                    <Object>sha256</Object>
+                    <Type>return value</Type>
+                    <Scope/>
+                    <IOProtocol>ap_ctrl_hs</IOProtocol>
+                    <IOConfig/>
+                    <Dir>out</Dir>
+                    <Bits>1</Bits>
+                    <Attribute>control</Attribute>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>stateREG_i</name>
+                    <Object>stateREG</Object>
+                    <Type>pointer</Type>
+                    <Scope/>
+                    <IOProtocol>ap_ovld</IOProtocol>
+                    <IOConfig/>
+                    <Dir>in</Dir>
+                    <Bits>32</Bits>
+                    <Attribute>data</Attribute>
+                    <CType>int</CType>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>stateREG_o</name>
+                    <Object>stateREG</Object>
+                    <Type>pointer</Type>
+                    <Scope/>
+                    <IOProtocol>ap_ovld</IOProtocol>
+                    <IOConfig/>
+                    <Dir>out</Dir>
+                    <Bits>32</Bits>
+                    <Attribute>data</Attribute>
+                    <CType>int</CType>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>stateREG_o_ap_vld</name>
+                    <Object>stateREG</Object>
+                    <Type>pointer</Type>
+                    <Scope/>
+                    <IOProtocol>ap_ovld</IOProtocol>
+                    <IOConfig/>
+                    <Dir>out</Dir>
+                    <Bits>1</Bits>
+                    <Attribute>control</Attribute>
+                    <CType>int</CType>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>data</name>
+                    <Object>data</Object>
+                    <Type>pointer</Type>
+                    <Scope/>
+                    <IOProtocol>ap_none</IOProtocol>
+                    <IOConfig/>
+                    <Dir>in</Dir>
+                    <Bits>8</Bits>
+                    <Attribute>data</Attribute>
+                    <CType>int</CType>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>hash_address0</name>
+                    <Object>hash</Object>
+                    <Type>array</Type>
+                    <Scope/>
+                    <IOProtocol>ap_memory</IOProtocol>
+                    <IOConfig/>
+                    <Dir>out</Dir>
+                    <Bits>5</Bits>
+                    <Attribute>address</Attribute>
+                    <CType>int</CType>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>hash_ce0</name>
+                    <Object>hash</Object>
+                    <Type>array</Type>
+                    <Scope/>
+                    <IOProtocol>ap_memory</IOProtocol>
+                    <IOConfig/>
+                    <Dir>out</Dir>
+                    <Bits>1</Bits>
+                    <Attribute>control</Attribute>
+                    <CType>int</CType>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>hash_we0</name>
+                    <Object>hash</Object>
+                    <Type>array</Type>
+                    <Scope/>
+                    <IOProtocol>ap_memory</IOProtocol>
+                    <IOConfig/>
+                    <Dir>out</Dir>
+                    <Bits>1</Bits>
+                    <Attribute>control</Attribute>
+                    <CType>int</CType>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>hash_d0</name>
+                    <Object>hash</Object>
+                    <Type>array</Type>
+                    <Scope/>
+                    <IOProtocol>ap_memory</IOProtocol>
+                    <IOConfig/>
+                    <Dir>out</Dir>
+                    <Bits>8</Bits>
+                    <Attribute>data</Attribute>
+                    <CType>int</CType>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>hash_address1</name>
+                    <Object>hash</Object>
+                    <Type>array</Type>
+                    <Scope/>
+                    <IOProtocol>ap_memory</IOProtocol>
+                    <IOConfig/>
+                    <Dir>out</Dir>
+                    <Bits>5</Bits>
+                    <Attribute>address</Attribute>
+                    <CType>int</CType>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>hash_ce1</name>
+                    <Object>hash</Object>
+                    <Type>array</Type>
+                    <Scope/>
+                    <IOProtocol>ap_memory</IOProtocol>
+                    <IOConfig/>
+                    <Dir>out</Dir>
+                    <Bits>1</Bits>
+                    <Attribute>control</Attribute>
+                    <CType>int</CType>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>hash_we1</name>
+                    <Object>hash</Object>
+                    <Type>array</Type>
+                    <Scope/>
+                    <IOProtocol>ap_memory</IOProtocol>
+                    <IOConfig/>
+                    <Dir>out</Dir>
+                    <Bits>1</Bits>
+                    <Attribute>control</Attribute>
+                    <CType>int</CType>
+                </RtlPorts>
+                <RtlPorts>
+                    <name>hash_d1</name>
+                    <Object>hash</Object>
+                    <Type>array</Type>
+                    <Scope/>
+                    <IOProtocol>ap_memory</IOProtocol>
+                    <IOConfig/>
+                    <Dir>out</Dir>
+                    <Bits>8</Bits>
+                    <Attribute>data</Attribute>
+                    <CType>int</CType>
+                </RtlPorts>
+            </InterfaceSummary>
+        </Module>
+    </ModuleInformation>
+    <FIFOInformation/>
+    <Args>
+        <Arg ArgName="stateREG" index="0" direction="inout" srcType="unsigned int*" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="stateREG_i" name="stateREG_i" usage="data" direction="in"/>
+                <hwRef type="port" interface="stateREG_o" name="stateREG_o" usage="data" direction="out"/>
+                <hwRef type="port" interface="stateREG_o_ap_vld" name="stateREG_o_ap_vld" usage="control" direction="inout"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="data" index="1" direction="in" srcType="unsigned char const *" srcSize="8">
+            <hwRefs>
+                <hwRef type="port" interface="data" name="data" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="hash" index="2" direction="out" srcType="unsigned char*" srcSize="8">
+            <hwRefs>
+                <hwRef type="port" interface="hash_address0" name="hash_address0" usage="address" direction="out"/>
+                <hwRef type="port" interface="hash_ce0" name="hash_ce0" usage="control" direction="out"/>
+                <hwRef type="port" interface="hash_we0" name="hash_we0" usage="control" direction="out"/>
+                <hwRef type="port" interface="hash_d0" name="hash_d0" usage="data" direction="out"/>
+                <hwRef type="port" interface="hash_address1" name="hash_address1" usage="address" direction="out"/>
+                <hwRef type="port" interface="hash_ce1" name="hash_ce1" usage="control" direction="out"/>
+                <hwRef type="port" interface="hash_we1" name="hash_we1" usage="control" direction="out"/>
+                <hwRef type="port" interface="hash_d1" name="hash_d1" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+    </Args>
+    <Interfaces>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_ctrl" type="ap_ctrl" busTypeName="acc_handshake" mode="slave">
+            <portMaps>
+                <portMap portMapName="ap_start">start</portMap>
+                <portMap portMapName="ap_done">done</portMap>
+                <portMap portMapName="ap_idle">idle</portMap>
+                <portMap portMapName="ap_ready">ready</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_done</port>
+                <port>ap_idle</port>
+                <port>ap_ready</port>
+                <port>ap_start</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_HIGH</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="data" type="data" busTypeName="data" mode="slave" dataWidth="8">
+            <portMaps>
+                <portMap portMapName="data">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>data</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="data"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="hash_address0" type="data" busTypeName="data" mode="master" dataWidth="5">
+            <portMaps>
+                <portMap portMapName="hash_address0">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>hash_address0</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="hash"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="hash_address1" type="data" busTypeName="data" mode="master" dataWidth="5">
+            <portMaps>
+                <portMap portMapName="hash_address1">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>hash_address1</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="hash"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="hash_d0" type="data" busTypeName="data" mode="master" dataWidth="8">
+            <portMaps>
+                <portMap portMapName="hash_d0">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>hash_d0</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="hash"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="hash_d1" type="data" busTypeName="data" mode="master" dataWidth="8">
+            <portMaps>
+                <portMap portMapName="hash_d1">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>hash_d1</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="hash"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="stateREG_i" type="data" busTypeName="data" mode="slave" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="stateREG_i">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>stateREG_i</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="stateREG"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="stateREG_o" type="data" busTypeName="data" mode="master" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="stateREG_o">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>stateREG_o</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="stateREG"/>
+            </constraints>
+        </Interface>
+    </Interfaces>
+    <ReportHWInterface>
+        <section name="HW Interfaces" level="0">
+            <item name="AP_MEMORY">
+                <table>
+                    <keys size="2">Interface, Bitwidth</keys>
+                    <column name="hash_address0">5</column>
+                    <column name="hash_address1">5</column>
+                    <column name="hash_d0">8</column>
+                    <column name="hash_d1">8</column>
+                </table>
+            </item>
+            <item name="REGISTER">
+                <table>
+                    <keys size="3">Interface, Mode, Bitwidth</keys>
+                    <column name="data">ap_none, 8</column>
+                    <column name="stateREG_i">ap_none, 32</column>
+                    <column name="stateREG_o">ap_none, 32</column>
+                </table>
+            </item>
+            <item name="TOP LEVEL CONTROL">
+                <table>
+                    <keys size="3">Interface, Type, Ports</keys>
+                    <column name="ap_clk">clock, ap_clk</column>
+                    <column name="ap_rst">reset, ap_rst</column>
+                    <column name="ap_ctrl">ap_ctrl_hs, ap_done ap_idle ap_ready ap_start</column>
+                </table>
+            </item>
+        </section>
+    </ReportHWInterface>
+    <ReportSWInterface>
+        <section name="SW I/O Information" level="0">
+            <item name="Top Function Arguments">
+                <table isCollapsed="1">
+                    <keys size="3">Argument, Direction, Datatype</keys>
+                    <column name="stateREG">inout, unsigned int*</column>
+                    <column name="data">in, unsigned char const *</column>
+                    <column name="hash">out, unsigned char*</column>
+                </table>
+            </item>
+            <item name="SW-to-HW Mapping">
+                <table isCollapsed="1">
+                    <keys size="4">Argument, HW Name, HW Type, HW Usage</keys>
+                    <column name="stateREG">stateREG_i, port, </column>
+                    <column name="stateREG">stateREG_o, port, </column>
+                    <column name="stateREG">stateREG_o_ap_vld, port, </column>
+                    <column name="data">data, port, </column>
+                    <column name="hash">hash_address0, port, offset</column>
+                    <column name="hash">hash_ce0, port, </column>
+                    <column name="hash">hash_we0, port, </column>
+                    <column name="hash">hash_d0, port, </column>
+                    <column name="hash">hash_address1, port, offset</column>
+                    <column name="hash">hash_ce1, port, </column>
+                    <column name="hash">hash_we1, port, </column>
+                    <column name="hash">hash_d1, port, </column>
+                </table>
+            </item>
+        </section>
+    </ReportSWInterface>
+    <ReportBurst>
+        <section name="M_AXI Burst Information" level="0"/>
+    </ReportBurst>
+</profile>
+

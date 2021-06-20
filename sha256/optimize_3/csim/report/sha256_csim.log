@@ -1,0 +1,9 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../shatest.cpp in debug mode
+   Compiling ../../../../sha256.cpp in debug mode
+   Generating csim.exe
+result is
+6548D955790A22925C1E23508EC4E2BFFB8E45D80261B4B2C1F9D8C9B0D152B6
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

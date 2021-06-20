@@ -7,7 +7,7 @@
     </downStreamTool>
     <config/>
     <UIConfigurations>
-        <UIAutosynConf hideTrivialOp="true" isBasedOnBoard="false" isSolutionDirty="false" isStopAskAgain="false" showDetailDesignViewer="false">
+        <UIAutosynConf hideTrivialOp="true" isBasedOnBoard="false" isSolutionDirty="true" isStopAskAgain="false" showDetailDesignViewer="false">
             <Platform>xilinx/Virtex-7/Virtex-7</Platform>
             <Platform>xilinx/Virtex-7/Virtex-7_fpv7</Platform>
             <customLibs/>

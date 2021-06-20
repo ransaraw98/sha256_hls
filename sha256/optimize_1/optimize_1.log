@@ -144,3 +144,45 @@ INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT s
 INFO: [HLS 200-789] **** Estimated Fmax: 154.08 MHz
 INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 80 seconds. CPU system time: 5 seconds. Elapsed time: 91.803 seconds; current allocated memory: 339.792 MB.
 INFO: [HLS 200-112] Total CPU user time: 84 seconds. Total CPU system time: 7 seconds. Total elapsed time: 97.798 seconds; peak allocated memory: 339.380 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: set_directive_unroll compress/compress_loop_1 
+INFO: [HLS 200-1510] Running: set_directive_pipeline compress/compress_loop_2 
+INFO: [HLS 200-1510] Running: set_directive_unroll compress/compress_loop_3 
+INFO: [HLS 200-1510] Running: set_directive_unroll pad/padding1 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.378 seconds; current allocated memory: 191.696 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: set_directive_unroll compress/compress_loop_1 
+INFO: [HLS 200-1510] Running: set_directive_pipeline compress/compress_loop_2 
+INFO: [HLS 200-1510] Running: set_directive_unroll compress/compress_loop_3 
+INFO: [HLS 200-1510] Running: set_directive_unroll pad/padding1 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.28 seconds; current allocated memory: 191.669 MB.

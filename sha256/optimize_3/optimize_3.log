@@ -1,0 +1,98 @@
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_unroll compress/compress_loop_1 
+INFO: [HLS 200-1510] Running: set_directive_pipeline compress/compress_loop_2 
+INFO: [HLS 200-1510] Running: set_directive_unroll compress/compress_loop_3 
+INFO: [HLS 200-1510] Running: set_directive_unroll pad/padding1 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.221 seconds; current allocated memory: 191.604 MB.
+INFO: [HLS 200-10] Analyzing design file 'sha256.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.98 seconds; current allocated memory: 191.930 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 5.046 seconds; current allocated memory: 194.590 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.111 seconds; current allocated memory: 194.591 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.248 seconds; current allocated memory: 195.971 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.156 seconds; current allocated memory: 195.174 MB.
+INFO: [XFORM 203-510] Pipelining loop 'convert_to_words' (sha256.cpp:18) in function 'sha256' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'create_schedule' (sha256.cpp:18) in function 'sha256' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'compression' (sha256.cpp:18) in function 'sha256' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'convert_endianess' (sha256.cpp:61) in function 'sha256' automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'sha256' (sha256.cpp:16)...10 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.295 seconds; current allocated memory: 215.806 MB.
+INFO: [HLS 200-472] Inferring partial write operation for 'm' (sha256.cpp:22:8)
+INFO: [HLS 200-472] Inferring partial write operation for 'm' (sha256.cpp:24:8)
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.31 seconds; current allocated memory: 208.837 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'sha256' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'sha256' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring 1WnR RAM type for array 'm'. Use bind_storage pragma to overwrite if needed.
+INFO: [SCHED 204-61] Pipelining loop 'convert_to_words'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'convert_to_words'
+INFO: [SCHED 204-61] Pipelining loop 'create_schedule'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'create_schedule'
+INFO: [SCHED 204-61] Pipelining loop 'compression'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'compression'
+INFO: [SCHED 204-61] Pipelining loop 'convert_endianess'.
+WARNING: [HLS 200-880] The II Violation in module 'sha256' (loop 'convert_endianess'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('hash_addr_6_write_ln73', sha256.cpp:73) of constant 0 on array 'hash' and 'store' operation ('hash_addr_write_ln67', sha256.cpp:67) of variable 'trunc_ln67_1', sha256.cpp:67 on array 'hash'.
+WARNING: [HLS 200-880] The II Violation in module 'sha256' (loop 'convert_endianess'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'store' operation ('hash_addr_7_write_ln74', sha256.cpp:74) of constant 0 on array 'hash' and 'store' operation ('hash_addr_2_write_ln69', sha256.cpp:69) of constant 0 on array 'hash'.
+WARNING: [HLS 200-885] Unable to schedule 'store' operation ('hash_addr_6_write_ln73', sha256.cpp:73) of constant 0 on array 'hash' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'hash'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 4, Depth = 4, loop 'convert_endianess'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.337 seconds; current allocated memory: 209.475 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.298 seconds; current allocated memory: 210.083 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sha256' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'sha256/stateREG' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sha256/data' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sha256/hash' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'sha256' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sha256'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.39 seconds; current allocated memory: 211.210 MB.
+INFO: [RTMG 210-279] Implementing memory 'sha256_k_rom' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'sha256_m_ram (RAM_1WnR)' using auto RAMs.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 2 seconds. CPU system time: 1 seconds. Elapsed time: 3.114 seconds; current allocated memory: 220.270 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for sha256.
+INFO: [VLOG 209-307] Generating Verilog RTL for sha256.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 215.38 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 6 seconds. CPU system time: 1 seconds. Elapsed time: 11.73 seconds; current allocated memory: 220.421 MB.
+INFO: [HLS 200-112] Total CPU user time: 10 seconds. Total CPU system time: 3 seconds. Total elapsed time: 16.053 seconds; peak allocated memory: 220.270 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_unroll compress/compress_loop_1 
+INFO: [HLS 200-1510] Running: set_directive_pipeline compress/compress_loop_2 
+INFO: [HLS 200-1510] Running: set_directive_unroll compress/compress_loop_3 
+INFO: [HLS 200-1510] Running: set_directive_unroll pad/padding1 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 1.343 seconds; current allocated memory: 191.703 MB.
