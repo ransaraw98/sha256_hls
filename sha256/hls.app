@@ -13,7 +13,9 @@
         <solution name="solution1" status="inactive"/>
         <solution name="solution2_1_hash" status="inactive"/>
         <solution name="optimize_1" status="inactive"/>
-        <solution name="optimize_3" status="active"/>
+        <solution name="optimize_3" status="inactive"/>
+        <solution name="optimize_4" status="inactive"/>
+        <solution name="optimize_5" status="active"/>
     </solutions>
 </project>
 

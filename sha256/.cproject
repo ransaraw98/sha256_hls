@@ -197,7 +197,7 @@
                     					
                     <sourceEntries>
                         						
-                        <entry excluding=".apc|.settings|optimize_1|optimize_3|solution1|solution2_1_hash|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+                        <entry excluding=".apc|.settings|optimize_1|optimize_3|optimize_4|optimize_5|solution1|solution2_1_hash|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
                         					
                     </sourceEntries>
                     				
@@ -383,7 +383,7 @@
                     					
                     <sourceEntries>
                         						
-                        <entry excluding=".apc|.settings|optimize_1|optimize_3|solution1|solution2_1_hash|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+                        <entry excluding=".apc|.settings|optimize_1|optimize_3|optimize_4|optimize_5|solution1|solution2_1_hash|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
                         					
                     </sourceEntries>
                     				

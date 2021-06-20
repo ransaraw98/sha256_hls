@@ -15,6 +15,16 @@
 /*********************** FUNCTION DEFINITIONS ***********************/
 void sha256(WORD stateREG[], const BYTE data[],BYTE hash[32])
 {
+	/*WORD stateREG[8];
+	BYTE data[64];
+	//BYTE hash[32];
+	copy1:for(int iter = 7; iter >=0; iter--)
+		stateREG[iter] = FstateREG[iter];
+
+	copy2:for(int iter = 0; iter <64; iter++)
+			data[iter] = Fdata[iter];
+*/
+
 	WORD a, b, c, d, e, f, g, h, i, j, t1, t2, m[64];
 
 	convert_to_words:for (i = 0, j = 0; i < 16; ++i, j += 4)

@@ -1,0 +1,37 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+    <sourceFile name="">
+        <directive functionName="sha256" label="convert_to_words" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="sha256" label="create_schedule" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="sha256" label="compression" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="sha256" label="convert_endianess" functionLabel="">
+            <pragma name="PIPELINE">
+                <option name="II" value="4"/>
+            </pragma>
+        </directive>
+        <directive functionName="sha256" label="" functionLabel="">
+            <pragma name="TOP">
+                <option name="name" value="sha256"/>
+            </pragma>
+        </directive>
+        <directive functionName="sha256" label="" functionLabel="">
+            <pragma name="ARRAY_PARTITION">
+                <option name="variable" value="m" positionalBoolean="4"/>
+                <option name="complete" value="" positionalBoolean="type"/>
+                <option name="factor" value="8"/>
+                <option name="dim" value="1"/>
+            </pragma>
+        </directive>
+        <directive functionName="sha256" label="" functionLabel="">
+            <pragma name="TOP">
+                <option name="name" value="sha256"/>
+            </pragma>
+        </directive>
+    </sourceFile>
+</AutoPilot:ProjectResources>
+
