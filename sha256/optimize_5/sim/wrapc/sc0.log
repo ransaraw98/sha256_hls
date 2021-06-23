@@ -1,0 +1,6 @@
+   Build using "C:/Xilinx/Vitis_HLS/2020.2/tps/win64/msys64/mingw64/bin/g++"
+   Compiling shatest.cpp_pre.cpp.tb.cpp
+   Compiling sha256.cpp_pre.cpp.tb.cpp
+   Compiling apatb_sha256.cpp
+   Compiling apatb_sha256_ir.ll
+   Generating cosim.tv.exe

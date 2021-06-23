@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Jun 21 13:12:17 2021
+# Process ID: 16636
+# Current directory: C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog
+# Command line: vivado.exe -source open_wave.tcl
+# Log file: C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/vivado.log
+# Journal file: C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog\vivado.jou
+#-----------------------------------------------------------
+start_gui
+source open_wave.tcl
+# current_fileset
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+current_fileset: Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 1126.215 ; gain = 0.000
+# open_wave_database sha256.wdb
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_sha256_top/AESL_inst_sha256/AESL_inst_sha256_activity
+open_wave_config C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/sha256.wcfg
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Jun 21 13:14:19 2021...

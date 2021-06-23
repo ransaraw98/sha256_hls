@@ -124,6 +124,11 @@
   },
   "HlsSolution": {
     "FlowTarget": "vivado",
+    "ConfigTcl": [
+      "config_export -format=ip_catalog",
+      "config_export -output=C:\/Users\/menuw\/Documents\/research\/SHA256\/hls\/exported_RTL\/Verilog\/sha256.zip",
+      "config_export -rtl=verilog"
+    ],
     "DirectiveTcl": [
       "set_directive_pipeline sha256\/convert_to_words ",
       "set_directive_pipeline sha256\/create_schedule ",
@@ -463,7 +468,7 @@
   "GenerateBdFiles": "0",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2021-06-21 01:58:01 +0530",
+    "Time": "2021-06-23 18:29:36 +0530",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.2"
   }

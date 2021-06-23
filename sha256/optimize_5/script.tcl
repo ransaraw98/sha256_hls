@@ -5,14 +5,15 @@
 ############################################################
 open_project sha256
 set_top sha256
-add_files sha256.cpp
 add_files sha256.h
+add_files sha256.cpp
 add_files -tb shatest.cpp -cflags "-DHW_COSIM -Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 open_solution "optimize_5" -flow_target vivado
 set_part {xcvu11p-flga2577-1-e}
 create_clock -period 10 -name default
+config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog
 source "./sha256/optimize_5/directives.tcl"
 csim_design
 csynth_design
-cosim_design
-export_design -rtl verilog -format ip_catalog
+cosim_design -trace_level all
+export_design -rtl verilog -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip

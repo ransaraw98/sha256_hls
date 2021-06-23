@@ -1243,29 +1243,26 @@ __attribute__((sdx_kernel("sha256", 0))) void sha256(WORD stateREG[], const BYTE
 
 
 
-
-
-
 __attribute__((sdx_kernel("sha256", 0))) void sha256(WORD stateREG[], const BYTE data[],BYTE hash[32])
 {_ssdm_SpecArrayDimSize(hash, 32);
 #pragma HLS TOP name=sha256
-# 17 "sha256.cpp"
+# 14 "sha256.cpp"
 
-# 28 "sha256.cpp"
+# 25 "sha256.cpp"
  WORD a, b, c, d, e, f, g, h, i, j, t1, t2, m[64];
 #pragma HLS ARRAY_PARTITION variable=m complete factor=8 dim=1
-# 28 "sha256.cpp"
+# 25 "sha256.cpp"
 
 
  convert_to_words:for (i = 0, j = 0; i < 16; ++i, j += 4)
 #pragma HLS PIPELINE
-# 30 "sha256.cpp"
+# 27 "sha256.cpp"
 
 
   m[i] = (data[j] << 24) | (data[j + 1] << 16) | (data[j + 2] << 8) | (data[j + 3]);
  create_schedule:for ( ; i < 64; ++i)
 #pragma HLS PIPELINE
-# 33 "sha256.cpp"
+# 30 "sha256.cpp"
 
   m[i] = ((((m[i - 2]) >> (17)) | ((m[i - 2]) << (32-(17)))) ^ (((m[i - 2]) >> (19)) | ((m[i - 2]) << (32-(19)))) ^ ((m[i - 2]) >> 10)) + m[i - 7] + ((((m[i - 15]) >> (7)) | ((m[i - 15]) << (32-(7)))) ^ (((m[i - 15]) >> (18)) | ((m[i - 15]) << (32-(18)))) ^ ((m[i - 15]) >> 3)) + m[i - 16];
 
@@ -1282,7 +1279,7 @@ __attribute__((sdx_kernel("sha256", 0))) void sha256(WORD stateREG[], const BYTE
 
  compression:for (i = 0; i < 64; ++i) {
 #pragma HLS PIPELINE
-# 47 "sha256.cpp"
+# 44 "sha256.cpp"
 
   t1 = h + ((((e) >> (6)) | ((e) << (32-(6)))) ^ (((e) >> (11)) | ((e) << (32-(11)))) ^ (((e) >> (25)) | ((e) << (32-(25))))) + (((e) & (f)) ^ (~(e) & (g))) + k[i] + m[i];
   t2 = ((((a) >> (2)) | ((a) << (32-(2)))) ^ (((a) >> (13)) | ((a) << (32-(13)))) ^ (((a) >> (22)) | ((a) << (32-(22))))) + (((a) & (b)) ^ ((a) & (c)) ^ ((b) & (c)));
@@ -1314,7 +1311,7 @@ __attribute__((sdx_kernel("sha256", 0))) void sha256(WORD stateREG[], const BYTE
 
  convert_endianess:for (r = 0; r < 4; ++r) {
 #pragma HLS PIPELINE II=4
-# 76 "sha256.cpp"
+# 73 "sha256.cpp"
 
   hash[r] = (stateREG[0] >> (24 - r * 8)) & 0x000000ff;
   hash[r + 4] = (stateREG[1] >> (24 - r * 8)) & 0x000000ff;

@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'sha256'
 ================================================================
 + General Information: 
-    * Date:           Mon Jun 21 01:57:58 2021
+    * Date:           Wed Jun 23 18:29:33 2021
     * Version:        2020.2 (Build 3064766 on Wed Nov 18 09:12:45 MST 2020)
     * Project:        sha256
     * Solution:       optimize_5 (Vivado IP Flow Target)

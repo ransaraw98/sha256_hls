@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# xsim v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Jun 21 13:11:33 2021
+# Process ID: 21688
+# Current directory: C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog
+# Command line: xsim.exe -mode tcl -source {xsim.dir/sha256/xsim_script.tcl}
+# Log file: C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/xsim.log
+# Journal file: C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/sha256/xsim_script.tcl
+open_wave_config sha256_dataflow_ana.wcfg
+source sha256.tcl

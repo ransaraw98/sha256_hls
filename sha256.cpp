@@ -8,11 +8,8 @@
 #include <memory.h>
 #include "sha256.h"
 
-
-/**************************** VARIABLES *****************************/
-
-
 /*********************** FUNCTION DEFINITIONS ***********************/
+
 void sha256(WORD stateREG[], const BYTE data[],BYTE hash[32])
 {
 	/*WORD stateREG[8];
