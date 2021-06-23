@@ -1,0 +1,719 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xcvu11p-flga2577-1-e",
+      "gen_directory": "../../../../project_1.gen/sources_1/bd/design_1",
+      "name": "design_1",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2020.2"
+    },
+    "design_tree": {
+      "sha256_0": "",
+      "sha256_data_0": "",
+      "sha256_hash_0": "",
+      "sha256_k_0": "",
+      "sha256_mux_646_32_1_1_0": "",
+      "sha256_k_rom_0": "",
+      "sha256_stateREG_ram_0": ""
+    },
+    "components": {
+      "sha256_0": {
+        "vlnv": "xilinx.com:module_ref:sha256:1.0",
+        "xci_name": "design_1_sha256_0_0",
+        "xci_path": "ip\\design_1_sha256_0_0\\design_1_sha256_0_0.xci",
+        "inst_hier_path": "sha256_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sha256",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "ap_clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "ap_rst",
+                "value_src": "constant"
+              }
+            }
+          },
+          "ap_rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "ap_start": {
+            "direction": "I"
+          },
+          "ap_done": {
+            "direction": "O"
+          },
+          "ap_idle": {
+            "direction": "O"
+          },
+          "ap_ready": {
+            "direction": "O"
+          },
+          "istateREG_V_dout": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "istateREG_V_empty_n": {
+            "direction": "I"
+          },
+          "istateREG_V_read": {
+            "direction": "O"
+          },
+          "idata_V_dout": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "idata_V_empty_n": {
+            "direction": "I"
+          },
+          "idata_V_read": {
+            "direction": "O"
+          },
+          "ohash_V_din": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "ohash_V_full_n": {
+            "direction": "I"
+          },
+          "ohash_V_write": {
+            "direction": "O"
+          }
+        }
+      },
+      "sha256_data_0": {
+        "vlnv": "xilinx.com:module_ref:sha256_data:1.0",
+        "xci_name": "design_1_sha256_data_0_0",
+        "xci_path": "ip\\design_1_sha256_data_0_0\\design_1_sha256_data_0_0.xci",
+        "inst_hier_path": "sha256_data_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sha256_data",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "address0": {
+            "direction": "I",
+            "left": "5",
+            "right": "0"
+          },
+          "ce0": {
+            "direction": "I"
+          },
+          "we0": {
+            "direction": "I"
+          },
+          "d0": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "q0": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "address1": {
+            "direction": "I",
+            "left": "5",
+            "right": "0"
+          },
+          "ce1": {
+            "direction": "I"
+          },
+          "q1": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "address2": {
+            "direction": "I",
+            "left": "5",
+            "right": "0"
+          },
+          "ce2": {
+            "direction": "I"
+          },
+          "q2": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "address3": {
+            "direction": "I",
+            "left": "5",
+            "right": "0"
+          },
+          "ce3": {
+            "direction": "I"
+          },
+          "q3": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "sha256_hash_0": {
+        "vlnv": "xilinx.com:module_ref:sha256_hash:1.0",
+        "xci_name": "design_1_sha256_hash_0_0",
+        "xci_path": "ip\\design_1_sha256_hash_0_0\\design_1_sha256_hash_0_0.xci",
+        "inst_hier_path": "sha256_hash_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sha256_hash",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "address0": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "ce0": {
+            "direction": "I"
+          },
+          "we0": {
+            "direction": "I"
+          },
+          "d0": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "q0": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "address1": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "ce1": {
+            "direction": "I"
+          },
+          "we1": {
+            "direction": "I"
+          },
+          "d1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "sha256_k_0": {
+        "vlnv": "xilinx.com:module_ref:sha256_k:1.0",
+        "xci_name": "design_1_sha256_k_0_0",
+        "xci_path": "ip\\design_1_sha256_k_0_0\\design_1_sha256_k_0_0.xci",
+        "inst_hier_path": "sha256_k_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sha256_k",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "address0": {
+            "direction": "I",
+            "left": "5",
+            "right": "0"
+          },
+          "ce0": {
+            "direction": "I"
+          },
+          "q0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          }
+        }
+      },
+      "sha256_mux_646_32_1_1_0": {
+        "vlnv": "xilinx.com:module_ref:sha256_mux_646_32_1_1:1.0",
+        "xci_name": "design_1_sha256_mux_646_32_1_1_0_0",
+        "xci_path": "ip\\design_1_sha256_mux_646_32_1_1_0_0\\design_1_sha256_mux_646_32_1_1_0_0.xci",
+        "inst_hier_path": "sha256_mux_646_32_1_1_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sha256_mux_646_32_1_1",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "din0": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din1": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din2": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din3": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din4": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din5": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din6": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din7": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din8": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din9": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din10": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din11": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din12": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din13": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din14": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din15": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din16": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din17": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din18": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din19": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din20": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din21": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din22": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din23": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din24": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din25": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din26": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din27": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din28": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din29": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din30": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din31": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din32": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din33": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din34": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din35": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din36": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din37": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din38": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din39": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din40": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din41": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din42": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din43": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din44": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din45": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din46": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din47": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din48": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din49": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din50": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din51": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din52": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din53": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din54": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din55": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din56": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din57": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din58": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din59": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din60": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din61": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din62": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din63": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "din64": {
+            "direction": "I",
+            "left": "5",
+            "right": "0"
+          },
+          "dout": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          }
+        }
+      },
+      "sha256_k_rom_0": {
+        "vlnv": "xilinx.com:module_ref:sha256_k_rom:1.0",
+        "xci_name": "design_1_sha256_k_rom_0_0",
+        "xci_path": "ip\\design_1_sha256_k_rom_0_0\\design_1_sha256_k_rom_0_0.xci",
+        "inst_hier_path": "sha256_k_rom_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sha256_k_rom",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "addr0": {
+            "direction": "I",
+            "left": "5",
+            "right": "0"
+          },
+          "ce0": {
+            "direction": "I"
+          },
+          "q0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          }
+        }
+      },
+      "sha256_stateREG_ram_0": {
+        "vlnv": "xilinx.com:module_ref:sha256_stateREG_ram:1.0",
+        "xci_name": "design_1_sha256_stateREG_ram_0_0",
+        "xci_path": "ip\\design_1_sha256_stateREG_ram_0_0\\design_1_sha256_stateREG_ram_0_0.xci",
+        "inst_hier_path": "sha256_stateREG_ram_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sha256_stateREG_ram",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "addr0": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ce0": {
+            "direction": "I"
+          },
+          "d0": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "we0": {
+            "direction": "I"
+          },
+          "q0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "addr1": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ce1": {
+            "direction": "I"
+          },
+          "d1": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "we1": {
+            "direction": "I"
+          },
+          "q1": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          }
+        }
+      }
+    }
+  }
+}

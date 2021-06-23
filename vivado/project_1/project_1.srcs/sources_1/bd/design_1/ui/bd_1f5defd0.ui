@@ -1,0 +1,19 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.01532",
+   "Default View_TopLeft":"-693,-941",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace inst sha256_0 -pg 1 -lvl 4 -x 460 -y -370 -defaultsOSRD
+preplace inst sha256_data_0 -pg 1 -lvl 2 -x -100 -y -740 -defaultsOSRD
+preplace inst sha256_hash_0 -pg 1 -lvl 3 -x 150 -y -730 -defaultsOSRD
+preplace inst sha256_k_0 -pg 1 -lvl 4 -x 460 -y -680 -defaultsOSRD
+preplace inst sha256_mux_646_32_1_1_0 -pg 1 -lvl 2 -x -100 -y 110 -defaultsOSRD
+preplace inst sha256_k_rom_0 -pg 1 -lvl 4 -x 460 -y -830 -defaultsOSRD
+preplace inst sha256_stateREG_ram_0 -pg 1 -lvl 1 -x -350 -y -780 -defaultsOSRD
+levelinfo -pg 1 -480 -350 -100 150 460 650
+pagesize -pg 1 -db -bbox -sgen -480 -930 650 810
+"
+}
+

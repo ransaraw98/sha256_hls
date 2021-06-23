@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Jun 24 01:06:22 2021" VIVADOVERSION="2020.2">
+
+  <SYSTEMINFO ARCH="virtexuplus" DEVICE="xcvu11p" NAME="design_1" PACKAGE="flga2577" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS/>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES/>
+
+</EDKSYSTEM>
