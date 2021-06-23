@@ -1,7 +1,7 @@
 INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
 make: 'csim.exe' is up to date.
-A2C0F1D8F82F1243DA602BE7302FDED20F69699019E5712DA751CDAA1187430DWARNING: Hls::stream 'hls::stream<unsigned char, 0>.1' contains leftover data, which may result in RTL simulation hanging.
+BA7816BF8F01CFEA414140DE5DAE2223B00361A396177A9CB410FF61F20015AD
 The maximum depth reached by any of the 3 hls::stream() instances in the design is 64
 INFO: [SIM 1] CSim done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************

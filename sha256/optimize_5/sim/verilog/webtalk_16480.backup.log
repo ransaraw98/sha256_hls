@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Webtalk v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Jun 24 00:11:49 2021
+# Process ID: 16480
+# Current directory: C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog
+# Command line: wbtcv.exe -mode batch -source C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/xsim.dir/sha256/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/webtalk.log
+# Journal file: C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog\webtalk.jou
+#-----------------------------------------------------------
+source C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/xsim.dir/sha256/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Thu Jun 24 00:11:49 2021...

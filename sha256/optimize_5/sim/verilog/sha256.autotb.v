@@ -14,32 +14,32 @@
 `define AUTOTB_MAX_ALLOW_LATENCY  15000000
 `define AUTOTB_CLOCK_PERIOD_DIV2 5.00
 
-`define AESL_DEPTH_stateREG 1
-`define AESL_DEPTH_data 1
-`define AESL_MEM_hash AESL_automem_hash
-`define AESL_MEM_INST_hash mem_inst_hash
-`define AUTOTB_TVIN_stateREG  "../tv/cdatafile/c.sha256.autotvin_stateREG.dat"
-`define AUTOTB_TVIN_data  "../tv/cdatafile/c.sha256.autotvin_data.dat"
-`define AUTOTB_TVIN_hash  "../tv/cdatafile/c.sha256.autotvin_hash.dat"
-`define AUTOTB_TVIN_stateREG_out_wrapc  "../tv/rtldatafile/rtl.sha256.autotvin_stateREG.dat"
-`define AUTOTB_TVIN_data_out_wrapc  "../tv/rtldatafile/rtl.sha256.autotvin_data.dat"
-`define AUTOTB_TVIN_hash_out_wrapc  "../tv/rtldatafile/rtl.sha256.autotvin_hash.dat"
-`define AUTOTB_TVOUT_stateREG  "../tv/cdatafile/c.sha256.autotvout_stateREG.dat"
-`define AUTOTB_TVOUT_hash  "../tv/cdatafile/c.sha256.autotvout_hash.dat"
-`define AUTOTB_TVOUT_stateREG_out_wrapc  "../tv/rtldatafile/rtl.sha256.autotvout_stateREG.dat"
-`define AUTOTB_TVOUT_hash_out_wrapc  "../tv/rtldatafile/rtl.sha256.autotvout_hash.dat"
+`define AESL_FIFO_istateREG_V AESL_autofifo_istateREG_V
+`define AESL_FIFO_INST_istateREG_V AESL_autofifo_inst_istateREG_V
+`define AESL_FIFO_idata_V AESL_autofifo_idata_V
+`define AESL_FIFO_INST_idata_V AESL_autofifo_inst_idata_V
+`define AESL_FIFO_ohash_V AESL_autofifo_ohash_V
+`define AESL_FIFO_INST_ohash_V AESL_autofifo_inst_ohash_V
+`define AUTOTB_TVIN_istateREG_V  "../tv/cdatafile/c.sha256.autotvin_istateREG_V.dat"
+`define AUTOTB_TVIN_idata_V  "../tv/cdatafile/c.sha256.autotvin_idata_V.dat"
+`define AUTOTB_TVIN_ohash_V  "../tv/cdatafile/c.sha256.autotvin_ohash_V.dat"
+`define AUTOTB_TVIN_istateREG_V_out_wrapc  "../tv/rtldatafile/rtl.sha256.autotvin_istateREG_V.dat"
+`define AUTOTB_TVIN_idata_V_out_wrapc  "../tv/rtldatafile/rtl.sha256.autotvin_idata_V.dat"
+`define AUTOTB_TVIN_ohash_V_out_wrapc  "../tv/rtldatafile/rtl.sha256.autotvin_ohash_V.dat"
+`define AUTOTB_TVOUT_ohash_V  "../tv/cdatafile/c.sha256.autotvout_ohash_V.dat"
+`define AUTOTB_TVOUT_ohash_V_out_wrapc  "../tv/rtldatafile/rtl.sha256.autotvout_ohash_V.dat"
 module `AUTOTB_TOP;
 
 parameter AUTOTB_TRANSACTION_NUM = 1;
 parameter PROGRESS_TIMEOUT = 10000000;
-parameter LATENCY_ESTIMATION = 153;
-parameter LENGTH_stateREG = 1;
-parameter LENGTH_data = 1;
-parameter LENGTH_hash = 32;
+parameter LATENCY_ESTIMATION = 215;
+parameter LENGTH_istateREG_V = 8;
+parameter LENGTH_idata_V = 8;
+parameter LENGTH_ohash_V = 32;
 
 task read_token;
     input integer fp;
-    output reg [159 : 0] token;
+    output reg [175 : 0] token;
     integer ret;
     begin
         token = "";
@@ -70,18 +70,15 @@ wire ap_start;
 wire ap_done;
 wire ap_idle;
 wire ap_ready;
-wire [31 : 0] stateREG_i;
-wire [31 : 0] stateREG_o;
-wire  stateREG_o_ap_vld;
-wire [7 : 0] data;
-wire [4 : 0] hash_address0;
-wire  hash_ce0;
-wire  hash_we0;
-wire [7 : 0] hash_d0;
-wire [4 : 0] hash_address1;
-wire  hash_ce1;
-wire  hash_we1;
-wire [7 : 0] hash_d1;
+wire [31 : 0] istateREG_V_dout;
+wire  istateREG_V_empty_n;
+wire  istateREG_V_read;
+wire [7 : 0] idata_V_dout;
+wire  idata_V_empty_n;
+wire  idata_V_read;
+wire [7 : 0] ohash_V_din;
+wire  ohash_V_full_n;
+wire  ohash_V_write;
 integer done_cnt = 0;
 integer AESL_ready_cnt = 0;
 integer ready_cnt = 0;
@@ -103,18 +100,15 @@ wire ap_rst_n;
     .ap_done(ap_done),
     .ap_idle(ap_idle),
     .ap_ready(ap_ready),
-    .stateREG_i(stateREG_i),
-    .stateREG_o(stateREG_o),
-    .stateREG_o_ap_vld(stateREG_o_ap_vld),
-    .data(data),
-    .hash_address0(hash_address0),
-    .hash_ce0(hash_ce0),
-    .hash_we0(hash_we0),
-    .hash_d0(hash_d0),
-    .hash_address1(hash_address1),
-    .hash_ce1(hash_ce1),
-    .hash_we1(hash_we1),
-    .hash_d1(hash_d1));
+    .istateREG_V_dout(istateREG_V_dout),
+    .istateREG_V_empty_n(istateREG_V_empty_n),
+    .istateREG_V_read(istateREG_V_read),
+    .idata_V_dout(idata_V_dout),
+    .idata_V_empty_n(idata_V_empty_n),
+    .idata_V_read(idata_V_read),
+    .ohash_V_din(ohash_V_din),
+    .ohash_V_full_n(ohash_V_full_n),
+    .ohash_V_write(ohash_V_write));
 
 // Assignment for control signal
 assign ap_clk = AESL_clock;
@@ -146,211 +140,135 @@ assign AESL_continue = tb_continue;
             end
         end
     end
-// The signal of port stateREG_i
-reg [31: 0] AESL_REG_stateREG_i = 0;
-assign stateREG_i = AESL_REG_stateREG_i;
-always @(posedge AESL_clock)
-begin
-    if(stateREG_o_ap_vld === 1)
-        AESL_REG_stateREG_i <= stateREG_o;
-end
+// Fifo Instantiation istateREG_V
 
-initial begin : read_file_process_stateREG
-    integer fp;
-    integer err;
-    integer ret;
-    integer proc_rand;
-    reg [159  : 0] token;
-    integer i;
-    reg transaction_finish;
-    integer transaction_idx;
-    transaction_idx = 0;
-    wait(AESL_reset === 0);
-    fp = $fopen(`AUTOTB_TVIN_stateREG,"r");
-    if(fp == 0) begin       // Failed to open file
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_stateREG);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    read_token(fp, token);
-    if (token != "[[[runtime]]]") begin
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    read_token(fp, token);
-    while (token != "[[[/runtime]]]") begin
-        if (token != "[[transaction]]") begin
-            $display("ERROR: Simulation using HLS TB failed.");
-              $finish;
-        end
-        read_token(fp, token);  // skip transaction number
-          read_token(fp, token);
-            # 0.2;
-            while(ready_wire !== 1) begin
-                @(posedge AESL_clock);
-                # 0.2;
-            end
-        if(token != "[[/transaction]]") begin
-            ret = $sscanf(token, "0x%x", AESL_REG_stateREG_i);
-              if (ret != 1) begin
-                  $display("Failed to parse token!");
-                $display("ERROR: Simulation using HLS TB failed.");
-                  $finish;
-              end
-            @(posedge AESL_clock);
-              read_token(fp, token);
-        end
-          read_token(fp, token);
-    end
-    $fclose(fp);
-end
+wire fifoistateREG_V_rd;
+wire [31 : 0] fifoistateREG_V_dout;
+wire fifoistateREG_V_empty_n;
+wire fifoistateREG_V_ready;
+wire fifoistateREG_V_done;
+reg [31:0] ap_c_n_tvin_trans_num_istateREG_V;
+reg istateREG_V_ready_reg;
 
-reg AESL_REG_stateREG_o_ap_vld = 0;
-// The signal of port stateREG_o
-reg [31: 0] AESL_REG_stateREG_o = 0;
-always @(posedge AESL_clock)
-begin
-    if(AESL_reset)
-        AESL_REG_stateREG_o = 0; 
-    else if(stateREG_o_ap_vld) begin
-        AESL_REG_stateREG_o <= stateREG_o;
-        AESL_REG_stateREG_o_ap_vld <= 1;
-    end
-end 
-
-initial begin : write_file_process_stateREG
-    integer fp;
-    integer fp_size;
-    integer err;
-    integer ret;
-    integer i;
-    integer hls_stream_size;
-    integer proc_rand;
-    integer stateREG_count;
-    reg [159:0] token;
-    integer transaction_idx;
-    reg [8 * 5:1] str;
-    wait(AESL_reset === 0);
-    fp = $fopen(`AUTOTB_TVOUT_stateREG_out_wrapc,"w");
-    if(fp == 0) begin       // Failed to open file
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_stateREG_out_wrapc);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    $fdisplay(fp,"[[[runtime]]]");
-    transaction_idx = 0;
-    while (transaction_idx != AUTOTB_TRANSACTION_NUM) begin
-        @(posedge AESL_clock);
-          while(AESL_done !== 1) begin
-              @(posedge AESL_clock);
-          end
-        # 0.4;
-        $fdisplay(fp,"[[transaction]] %d", transaction_idx);
-        if(AESL_REG_stateREG_o_ap_vld)  begin
-          $fdisplay(fp,"0x%x", AESL_REG_stateREG_o);
-        AESL_REG_stateREG_o_ap_vld = 0;
-        end
-    transaction_idx = transaction_idx + 1;
-      $fdisplay(fp,"[[/transaction]]");
-    end
-    $fdisplay(fp,"[[[/runtime]]]");
-    $fclose(fp);
-end
-
-
-// The signal of port data
-reg [7: 0] AESL_REG_data = 0;
-assign data = AESL_REG_data;
-initial begin : read_file_process_data
-    integer fp;
-    integer err;
-    integer ret;
-    integer proc_rand;
-    reg [159  : 0] token;
-    integer i;
-    reg transaction_finish;
-    integer transaction_idx;
-    transaction_idx = 0;
-    wait(AESL_reset === 0);
-    fp = $fopen(`AUTOTB_TVIN_data,"r");
-    if(fp == 0) begin       // Failed to open file
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_data);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    read_token(fp, token);
-    if (token != "[[[runtime]]]") begin
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    read_token(fp, token);
-    while (token != "[[[/runtime]]]") begin
-        if (token != "[[transaction]]") begin
-            $display("ERROR: Simulation using HLS TB failed.");
-              $finish;
-        end
-        read_token(fp, token);  // skip transaction number
-          read_token(fp, token);
-            # 0.2;
-            while(ready_wire !== 1) begin
-                @(posedge AESL_clock);
-                # 0.2;
-            end
-        if(token != "[[/transaction]]") begin
-            ret = $sscanf(token, "0x%x", AESL_REG_data);
-              if (ret != 1) begin
-                  $display("Failed to parse token!");
-                $display("ERROR: Simulation using HLS TB failed.");
-                  $finish;
-              end
-            @(posedge AESL_clock);
-              read_token(fp, token);
-        end
-          read_token(fp, token);
-    end
-    $fclose(fp);
-end
-
-
-//------------------------arrayhash Instantiation--------------
-
-// The input and output of arrayhash
-wire    arrayhash_ce0, arrayhash_ce1;
-wire [1 - 1 : 0]    arrayhash_we0, arrayhash_we1;
-wire    [4 : 0]    arrayhash_address0, arrayhash_address1;
-wire    [7 : 0]    arrayhash_din0, arrayhash_din1;
-wire    [7 : 0]    arrayhash_dout0, arrayhash_dout1;
-wire    arrayhash_ready;
-wire    arrayhash_done;
-
-`AESL_MEM_hash `AESL_MEM_INST_hash(
-    .clk        (AESL_clock),
-    .rst        (AESL_reset),
-    .ce0        (arrayhash_ce0),
-    .we0        (arrayhash_we0),
-    .address0   (arrayhash_address0),
-    .din0       (arrayhash_din0),
-    .dout0      (arrayhash_dout0),
-    .ce1        (arrayhash_ce1),
-    .we1        (arrayhash_we1),
-    .address1   (arrayhash_address1),
-    .din1       (arrayhash_din1),
-    .dout1      (arrayhash_dout1),
-    .ready      (arrayhash_ready),
-    .done    (arrayhash_done)
+`AESL_FIFO_istateREG_V `AESL_FIFO_INST_istateREG_V (
+    .clk          (AESL_clock),
+    .reset        (AESL_reset),
+    .if_write     (),
+    .if_din       (),
+    .if_full_n    (),
+    .if_read      (fifoistateREG_V_rd),
+    .if_dout      (fifoistateREG_V_dout),
+    .if_empty_n   (fifoistateREG_V_empty_n),
+    .ready        (fifoistateREG_V_ready),
+    .done         (fifoistateREG_V_done)
 );
 
-// Assignment between dut and arrayhash
-assign arrayhash_address0 = hash_address0;
-assign arrayhash_ce0 = hash_ce0;
-assign arrayhash_we0[0] = hash_we0;
-assign arrayhash_din0 = hash_d0;
-assign arrayhash_address1 = hash_address1;
-assign arrayhash_ce1 = hash_ce1;
-assign arrayhash_we1[0] = hash_we1;
-assign arrayhash_din1 = hash_d1;
-assign arrayhash_ready= ready_initial | arrayhash_done;
-assign arrayhash_done =    AESL_done_delay;
+// Assignment between dut and fifoistateREG_V
+
+// Assign input of fifoistateREG_V
+assign      fifoistateREG_V_rd        =   istateREG_V_read & istateREG_V_empty_n;
+assign    fifoistateREG_V_ready   =   istateREG_V_ready_reg | ready_initial;
+assign    fifoistateREG_V_done    =   0;
+// Assign input of dut
+assign      istateREG_V_dout       =   fifoistateREG_V_dout;
+reg   reg_fifoistateREG_V_empty_n;
+initial begin : gen_reg_fifoistateREG_V_empty_n_process
+    integer proc_rand;
+    reg_fifoistateREG_V_empty_n = fifoistateREG_V_empty_n;
+    while (1) begin
+        @ (fifoistateREG_V_empty_n);
+        reg_fifoistateREG_V_empty_n = fifoistateREG_V_empty_n;
+    end
+end
+
+assign      istateREG_V_empty_n    =   reg_fifoistateREG_V_empty_n;
+
+
+// Fifo Instantiation idata_V
+
+wire fifoidata_V_rd;
+wire [7 : 0] fifoidata_V_dout;
+wire fifoidata_V_empty_n;
+wire fifoidata_V_ready;
+wire fifoidata_V_done;
+reg [31:0] ap_c_n_tvin_trans_num_idata_V;
+reg idata_V_ready_reg;
+
+`AESL_FIFO_idata_V `AESL_FIFO_INST_idata_V (
+    .clk          (AESL_clock),
+    .reset        (AESL_reset),
+    .if_write     (),
+    .if_din       (),
+    .if_full_n    (),
+    .if_read      (fifoidata_V_rd),
+    .if_dout      (fifoidata_V_dout),
+    .if_empty_n   (fifoidata_V_empty_n),
+    .ready        (fifoidata_V_ready),
+    .done         (fifoidata_V_done)
+);
+
+// Assignment between dut and fifoidata_V
+
+// Assign input of fifoidata_V
+assign      fifoidata_V_rd        =   idata_V_read & idata_V_empty_n;
+assign    fifoidata_V_ready   =   idata_V_ready_reg | ready_initial;
+assign    fifoidata_V_done    =   0;
+// Assign input of dut
+assign      idata_V_dout       =   fifoidata_V_dout;
+reg   reg_fifoidata_V_empty_n;
+initial begin : gen_reg_fifoidata_V_empty_n_process
+    integer proc_rand;
+    reg_fifoidata_V_empty_n = fifoidata_V_empty_n;
+    while (1) begin
+        @ (fifoidata_V_empty_n);
+        reg_fifoidata_V_empty_n = fifoidata_V_empty_n;
+    end
+end
+
+assign      idata_V_empty_n    =   reg_fifoidata_V_empty_n;
+
+
+//------------------------Fifoohash_V Instantiation--------------
+
+// The input and output of fifoohash_V
+wire  fifoohash_V_wr;
+wire  [7 : 0] fifoohash_V_din;
+wire  fifoohash_V_full_n;
+wire  fifoohash_V_ready;
+wire  fifoohash_V_done;
+
+`AESL_FIFO_ohash_V `AESL_FIFO_INST_ohash_V(
+    .clk          (AESL_clock),
+    .reset        (AESL_reset),
+    .if_write     (fifoohash_V_wr),
+    .if_din       (fifoohash_V_din),
+    .if_full_n    (fifoohash_V_full_n),
+    .if_read      (),
+    .if_dout      (),
+    .if_empty_n   (),
+    .ready        (fifoohash_V_ready),
+    .done         (fifoohash_V_done)
+);
+
+// Assignment between dut and fifoohash_V
+
+// Assign input of fifoohash_V
+assign      fifoohash_V_wr        =   ohash_V_write & ohash_V_full_n;
+assign      fifoohash_V_din        =   ohash_V_din;
+assign    fifoohash_V_ready   =  0;   //ready_initial | AESL_done_delay;
+assign    fifoohash_V_done    =   AESL_done_delay;
+// Assign input of dut
+reg   reg_fifoohash_V_full_n;
+initial begin : gen_reg_fifoohash_V_full_n_process
+    integer proc_rand;
+    reg_fifoohash_V_full_n = fifoohash_V_full_n;
+    while (1) begin
+        @ (fifoohash_V_full_n);
+        reg_fifoohash_V_full_n = fifoohash_V_full_n;
+    end
+end
+
+assign      ohash_V_full_n    =   reg_fifoohash_V_full_n;
 
 
 initial begin : generate_AESL_ready_cnt_proc
@@ -415,15 +333,15 @@ initial begin
 end
 
 
-reg end_stateREG;
-reg [31:0] size_stateREG;
-reg [31:0] size_stateREG_backup;
-reg end_data;
-reg [31:0] size_data;
-reg [31:0] size_data_backup;
-reg end_hash;
-reg [31:0] size_hash;
-reg [31:0] size_hash_backup;
+reg end_istateREG_V;
+reg [31:0] size_istateREG_V;
+reg [31:0] size_istateREG_V_backup;
+reg end_idata_V;
+reg [31:0] size_idata_V;
+reg [31:0] size_idata_V_backup;
+reg end_ohash_V;
+reg [31:0] size_ohash_V;
+reg [31:0] size_ohash_V_backup;
 
 initial begin : initial_process
     integer proc_rand;
@@ -530,15 +448,225 @@ begin
           interface_done = 0;
   end
 end
+initial begin : proc_gen_istateREG_V_internal_ready
+    integer internal_trans_num;
+    wait(AESL_reset === 0);
+    wait (ready_initial === 1);
+    istateREG_V_ready_reg <= 0;
+    @(posedge AESL_clock);
+    internal_trans_num = 1;
+    while(internal_trans_num != AUTOTB_TRANSACTION_NUM + 1) begin
+        if (ap_c_n_tvin_trans_num_istateREG_V > internal_trans_num) begin
+            istateREG_V_ready_reg <= 1;
+            @(posedge AESL_clock);
+            istateREG_V_ready_reg <= 0;
+            internal_trans_num = internal_trans_num + 1;
+        end
+        else begin
+            @(posedge AESL_clock);
+        end
+    end
+    istateREG_V_ready_reg <= 0;
+end
+initial begin : proc_gen_idata_V_internal_ready
+    integer internal_trans_num;
+    wait(AESL_reset === 0);
+    wait (ready_initial === 1);
+    idata_V_ready_reg <= 0;
+    @(posedge AESL_clock);
+    internal_trans_num = 1;
+    while(internal_trans_num != AUTOTB_TRANSACTION_NUM + 1) begin
+        if (ap_c_n_tvin_trans_num_idata_V > internal_trans_num) begin
+            idata_V_ready_reg <= 1;
+            @(posedge AESL_clock);
+            idata_V_ready_reg <= 0;
+            internal_trans_num = internal_trans_num + 1;
+        end
+        else begin
+            @(posedge AESL_clock);
+        end
+    end
+    idata_V_ready_reg <= 0;
+end
+    
+    `define STREAM_SIZE_IN_istateREG_V "../tv/stream_size/stream_size_in_istateREG_V.dat"
+    
+    initial begin : gen_ap_c_n_tvin_trans_num_istateREG_V
+        integer fp_istateREG_V;
+        reg [127:0] token_istateREG_V;
+        integer ret;
+        
+        ap_c_n_tvin_trans_num_istateREG_V = 0;
+        end_istateREG_V = 0;
+        wait (AESL_reset === 0);
+        
+        fp_istateREG_V = $fopen(`STREAM_SIZE_IN_istateREG_V, "r");
+        if(fp_istateREG_V == 0) begin
+            $display("Failed to open file \"%s\"!", `STREAM_SIZE_IN_istateREG_V);
+            $finish;
+        end
+        read_token(fp_istateREG_V, token_istateREG_V); // should be [[[runtime]]]
+        if (token_istateREG_V != "[[[runtime]]]") begin
+            $display("ERROR: token_istateREG_V != \"[[[runtime]]]\"");
+            $finish;
+        end
+        size_istateREG_V = 0;
+        size_istateREG_V_backup = 0;
+        while (size_istateREG_V == 0 && end_istateREG_V == 0) begin
+            ap_c_n_tvin_trans_num_istateREG_V = ap_c_n_tvin_trans_num_istateREG_V + 1;
+            read_token(fp_istateREG_V, token_istateREG_V); // should be [[transaction]] or [[[/runtime]]]
+            if (token_istateREG_V == "[[transaction]]") begin
+                read_token(fp_istateREG_V, token_istateREG_V); // should be transaction number
+                read_token(fp_istateREG_V, token_istateREG_V); // should be size for hls::stream
+                ret = $sscanf(token_istateREG_V, "%d", size_istateREG_V);
+                if (size_istateREG_V > 0) begin
+                    size_istateREG_V_backup = size_istateREG_V;
+                end
+                read_token(fp_istateREG_V, token_istateREG_V); // should be [[/transaction]]
+            end else if (token_istateREG_V == "[[[/runtime]]]") begin
+                $fclose(fp_istateREG_V);
+                end_istateREG_V = 1;
+            end else begin
+                $display("ERROR: unknown token_istateREG_V");
+                $finish;
+            end
+        end
+        forever begin
+            @ (posedge AESL_clock);
+            if (end_istateREG_V == 0) begin
+                if (istateREG_V_read == 1 && istateREG_V_empty_n == 1) begin
+                    if (size_istateREG_V > 0) begin
+                        size_istateREG_V = size_istateREG_V - 1;
+                        while (size_istateREG_V == 0 && end_istateREG_V == 0) begin
+                            ap_c_n_tvin_trans_num_istateREG_V = ap_c_n_tvin_trans_num_istateREG_V + 1;
+                            read_token(fp_istateREG_V, token_istateREG_V); // should be [[transaction]] or [[[/runtime]]]
+                            if (token_istateREG_V == "[[transaction]]") begin
+                                read_token(fp_istateREG_V, token_istateREG_V); // should be transaction number
+                                read_token(fp_istateREG_V, token_istateREG_V); // should be size for hls::stream
+                                ret = $sscanf(token_istateREG_V, "%d", size_istateREG_V);
+                                if (size_istateREG_V > 0) begin
+                                    size_istateREG_V_backup = size_istateREG_V;
+                                end
+                                read_token(fp_istateREG_V, token_istateREG_V); // should be [[/transaction]]
+                            end else if (token_istateREG_V == "[[[/runtime]]]") begin
+                                size_istateREG_V = size_istateREG_V_backup;
+                                $fclose(fp_istateREG_V);
+                                end_istateREG_V = 1;
+                            end else begin
+                                $display("ERROR: unknown token_istateREG_V");
+                                $finish;
+                            end
+                        end
+                    end
+                end
+            end else begin
+                if (istateREG_V_read == 1 && istateREG_V_empty_n == 1) begin
+                    if (size_istateREG_V > 0) begin
+                        size_istateREG_V = size_istateREG_V - 1;
+                        if (size_istateREG_V == 0) begin
+                            ap_c_n_tvin_trans_num_istateREG_V = ap_c_n_tvin_trans_num_istateREG_V + 1;
+                            size_istateREG_V = size_istateREG_V_backup;
+                        end
+                    end
+                end
+            end
+        end
+    end
+    
+    
+    `define STREAM_SIZE_IN_idata_V "../tv/stream_size/stream_size_in_idata_V.dat"
+    
+    initial begin : gen_ap_c_n_tvin_trans_num_idata_V
+        integer fp_idata_V;
+        reg [127:0] token_idata_V;
+        integer ret;
+        
+        ap_c_n_tvin_trans_num_idata_V = 0;
+        end_idata_V = 0;
+        wait (AESL_reset === 0);
+        
+        fp_idata_V = $fopen(`STREAM_SIZE_IN_idata_V, "r");
+        if(fp_idata_V == 0) begin
+            $display("Failed to open file \"%s\"!", `STREAM_SIZE_IN_idata_V);
+            $finish;
+        end
+        read_token(fp_idata_V, token_idata_V); // should be [[[runtime]]]
+        if (token_idata_V != "[[[runtime]]]") begin
+            $display("ERROR: token_idata_V != \"[[[runtime]]]\"");
+            $finish;
+        end
+        size_idata_V = 0;
+        size_idata_V_backup = 0;
+        while (size_idata_V == 0 && end_idata_V == 0) begin
+            ap_c_n_tvin_trans_num_idata_V = ap_c_n_tvin_trans_num_idata_V + 1;
+            read_token(fp_idata_V, token_idata_V); // should be [[transaction]] or [[[/runtime]]]
+            if (token_idata_V == "[[transaction]]") begin
+                read_token(fp_idata_V, token_idata_V); // should be transaction number
+                read_token(fp_idata_V, token_idata_V); // should be size for hls::stream
+                ret = $sscanf(token_idata_V, "%d", size_idata_V);
+                if (size_idata_V > 0) begin
+                    size_idata_V_backup = size_idata_V;
+                end
+                read_token(fp_idata_V, token_idata_V); // should be [[/transaction]]
+            end else if (token_idata_V == "[[[/runtime]]]") begin
+                $fclose(fp_idata_V);
+                end_idata_V = 1;
+            end else begin
+                $display("ERROR: unknown token_idata_V");
+                $finish;
+            end
+        end
+        forever begin
+            @ (posedge AESL_clock);
+            if (end_idata_V == 0) begin
+                if (idata_V_read == 1 && idata_V_empty_n == 1) begin
+                    if (size_idata_V > 0) begin
+                        size_idata_V = size_idata_V - 1;
+                        while (size_idata_V == 0 && end_idata_V == 0) begin
+                            ap_c_n_tvin_trans_num_idata_V = ap_c_n_tvin_trans_num_idata_V + 1;
+                            read_token(fp_idata_V, token_idata_V); // should be [[transaction]] or [[[/runtime]]]
+                            if (token_idata_V == "[[transaction]]") begin
+                                read_token(fp_idata_V, token_idata_V); // should be transaction number
+                                read_token(fp_idata_V, token_idata_V); // should be size for hls::stream
+                                ret = $sscanf(token_idata_V, "%d", size_idata_V);
+                                if (size_idata_V > 0) begin
+                                    size_idata_V_backup = size_idata_V;
+                                end
+                                read_token(fp_idata_V, token_idata_V); // should be [[/transaction]]
+                            end else if (token_idata_V == "[[[/runtime]]]") begin
+                                size_idata_V = size_idata_V_backup;
+                                $fclose(fp_idata_V);
+                                end_idata_V = 1;
+                            end else begin
+                                $display("ERROR: unknown token_idata_V");
+                                $finish;
+                            end
+                        end
+                    end
+                end
+            end else begin
+                if (idata_V_read == 1 && idata_V_empty_n == 1) begin
+                    if (size_idata_V > 0) begin
+                        size_idata_V = size_idata_V - 1;
+                        if (size_idata_V == 0) begin
+                            ap_c_n_tvin_trans_num_idata_V = ap_c_n_tvin_trans_num_idata_V + 1;
+                            size_idata_V = size_idata_V_backup;
+                        end
+                    end
+                end
+            end
+        end
+    end
+    
 
-reg dump_tvout_finish_hash;
+reg dump_tvout_finish_ohash_V;
 
-initial begin : dump_tvout_runtime_sign_hash
+initial begin : dump_tvout_runtime_sign_ohash_V
     integer fp;
-    dump_tvout_finish_hash = 0;
-    fp = $fopen(`AUTOTB_TVOUT_hash_out_wrapc, "w");
+    dump_tvout_finish_ohash_V = 0;
+    fp = $fopen(`AUTOTB_TVOUT_ohash_V_out_wrapc, "w");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_hash_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_ohash_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
@@ -549,15 +677,15 @@ initial begin : dump_tvout_runtime_sign_hash
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_hash_out_wrapc, "a");
+    fp = $fopen(`AUTOTB_TVOUT_ohash_V_out_wrapc, "a");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_hash_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_ohash_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
     $fdisplay(fp,"[[[/runtime]]]");
     $fclose(fp);
-    dump_tvout_finish_hash = 1;
+    dump_tvout_finish_ohash_V = 1;
 end
 
 

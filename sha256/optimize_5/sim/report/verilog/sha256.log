@@ -4,6 +4,7 @@ INFO: [COSIM-14] Instrumenting C test bench ...
    Compiling shatest.cpp_pre.cpp.tb.cpp
    Compiling sha256.cpp_pre.cpp.tb.cpp
    Compiling apatb_sha256.cpp
+   Compiling apatb_sha256_util.cpp
    Compiling apatb_sha256_ir.ll
    Generating cosim.tv.exe
 INFO: [COSIM-302] Starting C TB testing ... 
@@ -13,8 +14,8 @@ INFO: [COSIM-1] *** C/RTL co-simulation file generation completed. ***
 INFO: [COSIM-323] Starting verilog simulation. 
 INFO: [COSIM-15] Starting XSIM ...
 INFO: [COSIM-316] Starting C post checking ...
-result is
-C731F5B665804F65C7E27DDF39331C658ADF819E797767202BB4C82EF5D1FA36
+61CFAB68D81DD8D25DCFA731682436D3A6E6935A2B6EA27917627CC24BCF0643WARNING: Hls::stream 'hls::stream<unsigned char, 0>.1' contains leftover data, which may result in RTL simulation hanging.
+The maximum depth reached by any of the 3 hls::stream() instances in the design is 64
 
 C:\Users\menuw\Documents\research\SHA256\hls\sha256\optimize_5\sim\verilog>set PATH= 
 
@@ -25,17 +26,30 @@ Running: C:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.
 Multi-threading is on. Using 6 slave threads.
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/glbl.v" into library work
 INFO: [VRFC 10-311] analyzing module glbl
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/AESL_automem_hash.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module AESL_automem_hash
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/AESL_autofifo_idata_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_idata_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/AESL_autofifo_istateREG_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_istateREG_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/AESL_autofifo_ohash_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_ohash_V
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/sha256.autotb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module apatb_sha256_top
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/sha256.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module sha256
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/sha256_data.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sha256_data_ram
+INFO: [VRFC 10-311] analyzing module sha256_data
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/sha256_hash.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sha256_hash_ram
+INFO: [VRFC 10-311] analyzing module sha256_hash
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/sha256_k.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module sha256_k_rom
 INFO: [VRFC 10-311] analyzing module sha256_k
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/sha256_mux_646_32_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module sha256_mux_646_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/sha256_stateREG.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sha256_stateREG_ram
+INFO: [VRFC 10-311] analyzing module sha256_stateREG
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/csv_file_dump.sv" into library xil_defaultlib
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module dataflow_monitor
@@ -63,9 +77,17 @@ Time Resolution for simulation is 1ps
 Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
 Compiling module xil_defaultlib.sha256_k_rom
 Compiling module xil_defaultlib.sha256_k(DataWidth=32,AddressRan...
+Compiling module xil_defaultlib.sha256_stateREG_ram
+Compiling module xil_defaultlib.sha256_stateREG(DataWidth=32,Add...
+Compiling module xil_defaultlib.sha256_data_ram
+Compiling module xil_defaultlib.sha256_data(DataWidth=8,AddressR...
+Compiling module xil_defaultlib.sha256_hash_ram
+Compiling module xil_defaultlib.sha256_hash(DataWidth=8,AddressR...
 Compiling module xil_defaultlib.sha256_mux_646_32_1_1(ID=1,din64...
 Compiling module xil_defaultlib.sha256
-Compiling module xil_defaultlib.AESL_automem_hash
+Compiling module xil_defaultlib.AESL_autofifo_istateREG_V
+Compiling module xil_defaultlib.AESL_autofifo_idata_V
+Compiling module xil_defaultlib.AESL_autofifo_ohash_V
 Compiling module xil_defaultlib.nodf_module_intf
 Compiling module xil_defaultlib.dataflow_monitor_1
 Compiling module xil_defaultlib.apatb_sha256_top
@@ -78,7 +100,7 @@ Built simulation snapshot sha256
     ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 
 source C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/xsim.dir/sha256/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Mon Jun 21 13:11:32 2021...
+INFO: [Common 17-206] Exiting Webtalk at Thu Jun 24 00:11:49 2021...
 
 ****** xsim v2020.2 (64-bit)
   **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
@@ -96,24 +118,20 @@ source sha256.tcl
 ## log_wave -r /
 WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of object type or size limitations.  To see details please rerun the command with -verbose (-v).
 ## set designtopgroup [add_wave_group "Design Top Signals"]
-## set cinoutgroup [add_wave_group "C InOuts" -into $designtopgroup]
-## set stateREG_group [add_wave_group stateREG(wire) -into $cinoutgroup]
-## add_wave /apatb_sha256_top/AESL_inst_sha256/stateREG_o_ap_vld -into $stateREG_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/stateREG_o -into $stateREG_group -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/stateREG_i -into $stateREG_group -radix hex
 ## set coutputgroup [add_wave_group "C Outputs" -into $designtopgroup]
-## set hash_group [add_wave_group hash(memory) -into $coutputgroup]
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_d1 -into $hash_group -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_we1 -into $hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_ce1 -into $hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_address1 -into $hash_group -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_d0 -into $hash_group -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_we0 -into $hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_ce0 -into $hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_address0 -into $hash_group -radix hex
+## set ohash_group [add_wave_group ohash(fifo) -into $coutputgroup]
+## add_wave /apatb_sha256_top/AESL_inst_sha256/ohash_V_write -into $ohash_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/AESL_inst_sha256/ohash_V_full_n -into $ohash_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/AESL_inst_sha256/ohash_V_din -into $ohash_group -radix hex
 ## set cinputgroup [add_wave_group "C Inputs" -into $designtopgroup]
-## set data_group [add_wave_group data(wire) -into $cinputgroup]
-## add_wave /apatb_sha256_top/AESL_inst_sha256/data -into $data_group -radix hex
+## set idata_group [add_wave_group idata(fifo) -into $cinputgroup]
+## add_wave /apatb_sha256_top/AESL_inst_sha256/idata_V_read -into $idata_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/AESL_inst_sha256/idata_V_empty_n -into $idata_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/AESL_inst_sha256/idata_V_dout -into $idata_group -radix hex
+## set istateREG_group [add_wave_group istateREG(fifo) -into $cinputgroup]
+## add_wave /apatb_sha256_top/AESL_inst_sha256/istateREG_V_read -into $istateREG_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/AESL_inst_sha256/istateREG_V_empty_n -into $istateREG_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/AESL_inst_sha256/istateREG_V_dout -into $istateREG_group -radix hex
 ## set blocksiggroup [add_wave_group "Block-level IO Handshake" -into $designtopgroup]
 ## add_wave /apatb_sha256_top/AESL_inst_sha256/ap_start -into $blocksiggroup
 ## add_wave /apatb_sha256_top/AESL_inst_sha256/ap_done -into $blocksiggroup
@@ -130,27 +148,23 @@ WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of o
 ## add_wave /apatb_sha256_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
 ## add_wave /apatb_sha256_top/ready_cnt -into $tb_simstatus_group -radix hex
 ## add_wave /apatb_sha256_top/done_cnt -into $tb_simstatus_group -radix hex
-## add_wave /apatb_sha256_top/LENGTH_stateREG -into $tb_portdepth_group -radix hex
-## add_wave /apatb_sha256_top/LENGTH_data -into $tb_portdepth_group -radix hex
-## add_wave /apatb_sha256_top/LENGTH_hash -into $tb_portdepth_group -radix hex
-## set tbcinoutgroup [add_wave_group "C InOuts" -into $testbenchgroup]
-## set tb_stateREG_group [add_wave_group stateREG(wire) -into $tbcinoutgroup]
-## add_wave /apatb_sha256_top/stateREG_o_ap_vld -into $tb_stateREG_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/stateREG_o -into $tb_stateREG_group -radix hex
-## add_wave /apatb_sha256_top/stateREG_i -into $tb_stateREG_group -radix hex
+## add_wave /apatb_sha256_top/LENGTH_istateREG_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_sha256_top/LENGTH_idata_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_sha256_top/LENGTH_ohash_V -into $tb_portdepth_group -radix hex
 ## set tbcoutputgroup [add_wave_group "C Outputs" -into $testbenchgroup]
-## set tb_hash_group [add_wave_group hash(memory) -into $tbcoutputgroup]
-## add_wave /apatb_sha256_top/hash_d1 -into $tb_hash_group -radix hex
-## add_wave /apatb_sha256_top/hash_we1 -into $tb_hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/hash_ce1 -into $tb_hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/hash_address1 -into $tb_hash_group -radix hex
-## add_wave /apatb_sha256_top/hash_d0 -into $tb_hash_group -radix hex
-## add_wave /apatb_sha256_top/hash_we0 -into $tb_hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/hash_ce0 -into $tb_hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/hash_address0 -into $tb_hash_group -radix hex
+## set tb_ohash_group [add_wave_group ohash(fifo) -into $tbcoutputgroup]
+## add_wave /apatb_sha256_top/ohash_V_write -into $tb_ohash_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/ohash_V_full_n -into $tb_ohash_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/ohash_V_din -into $tb_ohash_group -radix hex
 ## set tbcinputgroup [add_wave_group "C Inputs" -into $testbenchgroup]
-## set tb_data_group [add_wave_group data(wire) -into $tbcinputgroup]
-## add_wave /apatb_sha256_top/data -into $tb_data_group -radix hex
+## set tb_idata_group [add_wave_group idata(fifo) -into $tbcinputgroup]
+## add_wave /apatb_sha256_top/idata_V_read -into $tb_idata_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/idata_V_empty_n -into $tb_idata_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/idata_V_dout -into $tb_idata_group -radix hex
+## set tb_istateREG_group [add_wave_group istateREG(fifo) -into $tbcinputgroup]
+## add_wave /apatb_sha256_top/istateREG_V_read -into $tb_istateREG_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/istateREG_V_empty_n -into $tb_istateREG_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/istateREG_V_dout -into $tb_istateREG_group -radix hex
 ## save_wave_config sha256.wcfg
 ## run all
 ////////////////////////////////////////////////////////////////////////////////////
@@ -160,12 +174,12 @@ WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of o
 // RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
 ////////////////////////////////////////////////////////////////////////////////////
 // RTL Simulation : 0 / 1 [0.00%] @ "125000"
-// RTL Simulation : 1 / 1 [100.00%] @ "1675000"
+// RTL Simulation : 1 / 1 [100.00%] @ "2295000"
 ////////////////////////////////////////////////////////////////////////////////////
-$finish called at time : 1715 ns : File "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/sha256.autotb.v" Line 409
+$finish called at time : 2335 ns : File "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/sha256.autotb.v" Line 327
 ## quit
-INFO: [Common 17-206] Exiting xsim at Mon Jun 21 13:11:39 2021...
-result is
-0000000000000000000000000000000000000000000000000000000000000000
+INFO: [Common 17-206] Exiting xsim at Thu Jun 24 00:11:56 2021...
+0000000000000000000000000000000000000000000000000000000000000000WARNING: Hls::stream 'hls::stream<unsigned char, 0>.1' contains leftover data, which may result in RTL simulation hanging.
+The maximum depth reached by any of the 3 hls::stream() instances in the design is 64
 INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***
 INFO: [COSIM-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.

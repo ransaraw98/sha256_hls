@@ -15,111 +15,44 @@
     "Triple": "fpga64-xilinx-none"
   },
   "Args": {
-    "stateREG": {
+    "istateREG": {
       "index": "0",
-      "direction": "inout",
-      "srcType": "unsigned int*",
+      "direction": "in",
+      "srcType": "stream<unsigned int, 0>&",
       "srcSize": "32",
-      "hwRefs": [
-        {
-          "type": "port",
-          "interface": "stateREG_i",
-          "name": "stateREG_i",
-          "usage": "data",
-          "direction": "in"
-        },
-        {
-          "type": "port",
-          "interface": "stateREG_o",
-          "name": "stateREG_o",
+      "hwRefs": [{
+          "type": "interface",
+          "interface": "istateREG_V",
+          "name": "",
           "usage": "data",
           "direction": "out"
-        },
-        {
-          "type": "port",
-          "interface": "stateREG_o_ap_vld",
-          "name": "stateREG_o_ap_vld",
-          "usage": "control",
-          "direction": "inout"
-        }
-      ]
-    },
-    "data": {
-      "index": "1",
-      "direction": "in",
-      "srcType": "unsigned char const *",
-      "srcSize": "8",
-      "hwRefs": [{
-          "type": "port",
-          "interface": "data",
-          "name": "data",
-          "usage": "data",
-          "direction": "in"
         }]
     },
-    "hash": {
+    "idata": {
+      "index": "1",
+      "direction": "in",
+      "srcType": "stream<unsigned char, 0>&",
+      "srcSize": "8",
+      "hwRefs": [{
+          "type": "interface",
+          "interface": "idata_V",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        }]
+    },
+    "ohash": {
       "index": "2",
       "direction": "out",
-      "srcType": "unsigned char*",
+      "srcType": "stream<unsigned char, 0>&",
       "srcSize": "8",
-      "hwRefs": [
-        {
-          "type": "port",
-          "interface": "hash_address0",
-          "name": "hash_address0",
-          "usage": "address",
-          "direction": "out"
-        },
-        {
-          "type": "port",
-          "interface": "hash_ce0",
-          "name": "hash_ce0",
-          "usage": "control",
-          "direction": "out"
-        },
-        {
-          "type": "port",
-          "interface": "hash_we0",
-          "name": "hash_we0",
-          "usage": "control",
-          "direction": "out"
-        },
-        {
-          "type": "port",
-          "interface": "hash_d0",
-          "name": "hash_d0",
+      "hwRefs": [{
+          "type": "interface",
+          "interface": "ohash_V",
+          "name": "",
           "usage": "data",
           "direction": "out"
-        },
-        {
-          "type": "port",
-          "interface": "hash_address1",
-          "name": "hash_address1",
-          "usage": "address",
-          "direction": "out"
-        },
-        {
-          "type": "port",
-          "interface": "hash_ce1",
-          "name": "hash_ce1",
-          "usage": "control",
-          "direction": "out"
-        },
-        {
-          "type": "port",
-          "interface": "hash_we1",
-          "name": "hash_we1",
-          "usage": "control",
-          "direction": "out"
-        },
-        {
-          "type": "port",
-          "interface": "hash_d1",
-          "name": "hash_d1",
-          "usage": "data",
-          "direction": "out"
-        }
-      ]
+        }]
     }
   },
   "HlsSolution": {
@@ -148,7 +81,7 @@
     "Uncertainty": "2.7",
     "IsCombinational": "0",
     "II": "x",
-    "Latency": "153"
+    "Latency": "215"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
   "Ipx": {
@@ -166,14 +99,20 @@
   "Files": {
     "CSource": ["..\/..\/sha256.cpp"],
     "Vhdl": [
+      "impl\/vhdl\/sha256_data.vhd",
+      "impl\/vhdl\/sha256_hash.vhd",
       "impl\/vhdl\/sha256_k.vhd",
       "impl\/vhdl\/sha256_mux_646_32_1_1.vhd",
+      "impl\/vhdl\/sha256_stateREG.vhd",
       "impl\/vhdl\/sha256.vhd"
     ],
     "Verilog": [
+      "impl\/verilog\/sha256_data.v",
+      "impl\/verilog\/sha256_hash.v",
       "impl\/verilog\/sha256_k.v",
       "impl\/verilog\/sha256_k_rom.dat",
       "impl\/verilog\/sha256_mux_646_32_1_1.v",
+      "impl\/verilog\/sha256_stateREG.v",
       "impl\/verilog\/sha256.v"
     ],
     "IpMisc": ["impl\/misc\/logo.png"],
@@ -220,102 +159,73 @@
       "portMap": {"ap_rst": "RST"},
       "ports": ["ap_rst"]
     },
-    "data": {
-      "type": "data",
-      "busTypeName": "data",
-      "mode": "slave",
-      "dataWidth": "8",
-      "portMap": {"data": "DATA"},
-      "ports": ["data"],
-      "constraints": [{
-          "constraint_type": "pragma interface",
-          "mode": "ap_none",
-          "register_option": "0",
-          "argName": "data"
-        }]
-    },
-    "hash_address0": {
-      "type": "data",
-      "busTypeName": "data",
-      "mode": "master",
-      "dataWidth": "5",
-      "portMap": {"hash_address0": "DATA"},
-      "ports": ["hash_address0"],
-      "constraints": [{
-          "constraint_type": "pragma interface",
-          "mode": "ap_memory",
-          "register_option": "0",
-          "argName": "hash"
-        }]
-    },
-    "hash_address1": {
-      "type": "data",
-      "busTypeName": "data",
-      "mode": "master",
-      "dataWidth": "5",
-      "portMap": {"hash_address1": "DATA"},
-      "ports": ["hash_address1"],
-      "constraints": [{
-          "constraint_type": "pragma interface",
-          "mode": "ap_memory",
-          "register_option": "0",
-          "argName": "hash"
-        }]
-    },
-    "hash_d0": {
-      "type": "data",
-      "busTypeName": "data",
+    "idata_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
       "mode": "master",
       "dataWidth": "8",
-      "portMap": {"hash_d0": "DATA"},
-      "ports": ["hash_d0"],
+      "portPrefix": "idata_V_",
+      "portMap": {
+        "idata_V_dout": "RD_DATA",
+        "idata_V_empty_n": "EMPTY_N",
+        "idata_V_read": "RD_EN"
+      },
+      "ports": [
+        "idata_V_dout",
+        "idata_V_empty_n",
+        "idata_V_read"
+      ],
       "constraints": [{
           "constraint_type": "pragma interface",
-          "mode": "ap_memory",
+          "mode": "ap_fifo",
           "register_option": "0",
-          "argName": "hash"
+          "argName": "idata"
         }]
     },
-    "hash_d1": {
-      "type": "data",
-      "busTypeName": "data",
-      "mode": "master",
-      "dataWidth": "8",
-      "portMap": {"hash_d1": "DATA"},
-      "ports": ["hash_d1"],
-      "constraints": [{
-          "constraint_type": "pragma interface",
-          "mode": "ap_memory",
-          "register_option": "0",
-          "argName": "hash"
-        }]
-    },
-    "stateREG_i": {
-      "type": "data",
-      "busTypeName": "data",
-      "mode": "slave",
-      "dataWidth": "32",
-      "portMap": {"stateREG_i": "DATA"},
-      "ports": ["stateREG_i"],
-      "constraints": [{
-          "constraint_type": "pragma interface",
-          "mode": "ap_none",
-          "register_option": "0",
-          "argName": "stateREG"
-        }]
-    },
-    "stateREG_o": {
-      "type": "data",
-      "busTypeName": "data",
+    "istateREG_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
       "mode": "master",
       "dataWidth": "32",
-      "portMap": {"stateREG_o": "DATA"},
-      "ports": ["stateREG_o"],
+      "portPrefix": "istateREG_V_",
+      "portMap": {
+        "istateREG_V_dout": "RD_DATA",
+        "istateREG_V_empty_n": "EMPTY_N",
+        "istateREG_V_read": "RD_EN"
+      },
+      "ports": [
+        "istateREG_V_dout",
+        "istateREG_V_empty_n",
+        "istateREG_V_read"
+      ],
       "constraints": [{
           "constraint_type": "pragma interface",
-          "mode": "ap_none",
+          "mode": "ap_fifo",
           "register_option": "0",
-          "argName": "stateREG"
+          "argName": "istateREG"
+        }]
+    },
+    "ohash_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_write",
+      "mode": "master",
+      "dataWidth": "8",
+      "portPrefix": "ohash_V_",
+      "portMap": {
+        "ohash_V_din": "WR_DATA",
+        "ohash_V_full_n": "FULL_N",
+        "ohash_V_write": "WR_EN"
+      },
+      "ports": [
+        "ohash_V_din",
+        "ohash_V_full_n",
+        "ohash_V_write"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "ohash"
         }]
     }
   },
@@ -344,53 +254,41 @@
       "dir": "out",
       "width": "1"
     },
-    "stateREG_i": {
+    "istateREG_V_dout": {
       "dir": "in",
       "width": "32"
     },
-    "stateREG_o": {
-      "dir": "out",
-      "width": "32"
+    "istateREG_V_empty_n": {
+      "dir": "in",
+      "width": "1"
     },
-    "stateREG_o_ap_vld": {
+    "istateREG_V_read": {
       "dir": "out",
       "width": "1"
     },
-    "data": {
+    "idata_V_dout": {
       "dir": "in",
       "width": "8"
     },
-    "hash_address0": {
-      "dir": "out",
-      "width": "5"
+    "idata_V_empty_n": {
+      "dir": "in",
+      "width": "1"
     },
-    "hash_ce0": {
+    "idata_V_read": {
       "dir": "out",
       "width": "1"
     },
-    "hash_we0": {
-      "dir": "out",
-      "width": "1"
-    },
-    "hash_d0": {
+    "ohash_V_din": {
       "dir": "out",
       "width": "8"
     },
-    "hash_address1": {
-      "dir": "out",
-      "width": "5"
-    },
-    "hash_ce1": {
-      "dir": "out",
+    "ohash_V_full_n": {
+      "dir": "in",
       "width": "1"
     },
-    "hash_we1": {
+    "ohash_V_write": {
       "dir": "out",
       "width": "1"
-    },
-    "hash_d1": {
-      "dir": "out",
-      "width": "8"
     }
   },
   "ModuleInfo": {
@@ -404,10 +302,10 @@
       }},
     "Metrics": {"sha256": {
         "Latency": {
-          "LatencyBest": "153",
-          "LatencyAvg": "153",
-          "LatencyWorst": "153",
-          "PipelineII": "154",
+          "LatencyBest": "215",
+          "LatencyAvg": "215",
+          "LatencyWorst": "215",
+          "PipelineII": "216",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -418,11 +316,25 @@
         },
         "Loops": [
           {
+            "Name": "load_State",
+            "TripCount": "8",
+            "Latency": "8",
+            "PipelineII": "1",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "load_data",
+            "TripCount": "8",
+            "Latency": "8",
+            "PipelineII": "1",
+            "PipelineDepth": "2"
+          },
+          {
             "Name": "convert_to_words",
             "TripCount": "16",
-            "Latency": "16",
+            "Latency": "17",
             "PipelineII": "1",
-            "PipelineDepth": "1"
+            "PipelineDepth": "2"
           },
           {
             "Name": "create_schedule",
@@ -444,16 +356,23 @@
             "Latency": "16",
             "PipelineII": "4",
             "PipelineDepth": "4"
+          },
+          {
+            "Name": "store_hash",
+            "TripCount": "32",
+            "Latency": "32",
+            "PipelineII": "1",
+            "PipelineDepth": "2"
           }
         ],
         "Area": {
           "BRAM_18K": "1",
           "AVAIL_BRAM": "4032",
           "UTIL_BRAM": "~0",
-          "FF": "4022",
+          "FF": "4706",
           "AVAIL_FF": "2592000",
           "UTIL_FF": "~0",
-          "LUT": "2598",
+          "LUT": "4180",
           "AVAIL_LUT": "1296000",
           "UTIL_LUT": "~0",
           "DSP": "0",
@@ -468,7 +387,7 @@
   "GenerateBdFiles": "0",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2021-06-23 18:29:36 +0530",
+    "Time": "2021-06-24 00:10:31 +0530",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.2"
   }

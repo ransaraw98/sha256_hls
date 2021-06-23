@@ -4,6 +4,6 @@
 // ==============================================================
 
 extern "C" void AESL_WRAP_sha256 (
-volatile void* stateREG,
-volatile void* data,
-volatile void* hash);
+hls::stream<int > istateREG,
+hls::stream<int > idata,
+hls::stream<int > ohash);

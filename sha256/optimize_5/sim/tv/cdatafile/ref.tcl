@@ -1,6 +1,6 @@
 set depth_list {
-{stateREG 1}
-{data 1}
-{hash 32}
+{istateREG_V 8}
+{idata_V 8}
+{ohash_V 32}
 }
 set trans_num 1

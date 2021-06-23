@@ -2,8 +2,8 @@
 # xsim v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Mon Jun 21 13:11:33 2021
-# Process ID: 21688
+# Start of session at: Thu Jun 24 00:11:51 2021
+# Process ID: 16836
 # Current directory: C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog
 # Command line: xsim.exe -mode tcl -source {xsim.dir/sha256/xsim_script.tcl}
 # Log file: C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/xsim.log
@@ -20,24 +20,20 @@ source sha256.tcl
 ## log_wave -r /
 WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of object type or size limitations.  To see details please rerun the command with -verbose (-v).
 ## set designtopgroup [add_wave_group "Design Top Signals"]
-## set cinoutgroup [add_wave_group "C InOuts" -into $designtopgroup]
-## set stateREG_group [add_wave_group stateREG(wire) -into $cinoutgroup]
-## add_wave /apatb_sha256_top/AESL_inst_sha256/stateREG_o_ap_vld -into $stateREG_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/stateREG_o -into $stateREG_group -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/stateREG_i -into $stateREG_group -radix hex
 ## set coutputgroup [add_wave_group "C Outputs" -into $designtopgroup]
-## set hash_group [add_wave_group hash(memory) -into $coutputgroup]
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_d1 -into $hash_group -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_we1 -into $hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_ce1 -into $hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_address1 -into $hash_group -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_d0 -into $hash_group -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_we0 -into $hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_ce0 -into $hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/AESL_inst_sha256/hash_address0 -into $hash_group -radix hex
+## set ohash_group [add_wave_group ohash(fifo) -into $coutputgroup]
+## add_wave /apatb_sha256_top/AESL_inst_sha256/ohash_V_write -into $ohash_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/AESL_inst_sha256/ohash_V_full_n -into $ohash_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/AESL_inst_sha256/ohash_V_din -into $ohash_group -radix hex
 ## set cinputgroup [add_wave_group "C Inputs" -into $designtopgroup]
-## set data_group [add_wave_group data(wire) -into $cinputgroup]
-## add_wave /apatb_sha256_top/AESL_inst_sha256/data -into $data_group -radix hex
+## set idata_group [add_wave_group idata(fifo) -into $cinputgroup]
+## add_wave /apatb_sha256_top/AESL_inst_sha256/idata_V_read -into $idata_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/AESL_inst_sha256/idata_V_empty_n -into $idata_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/AESL_inst_sha256/idata_V_dout -into $idata_group -radix hex
+## set istateREG_group [add_wave_group istateREG(fifo) -into $cinputgroup]
+## add_wave /apatb_sha256_top/AESL_inst_sha256/istateREG_V_read -into $istateREG_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/AESL_inst_sha256/istateREG_V_empty_n -into $istateREG_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/AESL_inst_sha256/istateREG_V_dout -into $istateREG_group -radix hex
 ## set blocksiggroup [add_wave_group "Block-level IO Handshake" -into $designtopgroup]
 ## add_wave /apatb_sha256_top/AESL_inst_sha256/ap_start -into $blocksiggroup
 ## add_wave /apatb_sha256_top/AESL_inst_sha256/ap_done -into $blocksiggroup
@@ -54,27 +50,23 @@ WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of o
 ## add_wave /apatb_sha256_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
 ## add_wave /apatb_sha256_top/ready_cnt -into $tb_simstatus_group -radix hex
 ## add_wave /apatb_sha256_top/done_cnt -into $tb_simstatus_group -radix hex
-## add_wave /apatb_sha256_top/LENGTH_stateREG -into $tb_portdepth_group -radix hex
-## add_wave /apatb_sha256_top/LENGTH_data -into $tb_portdepth_group -radix hex
-## add_wave /apatb_sha256_top/LENGTH_hash -into $tb_portdepth_group -radix hex
-## set tbcinoutgroup [add_wave_group "C InOuts" -into $testbenchgroup]
-## set tb_stateREG_group [add_wave_group stateREG(wire) -into $tbcinoutgroup]
-## add_wave /apatb_sha256_top/stateREG_o_ap_vld -into $tb_stateREG_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/stateREG_o -into $tb_stateREG_group -radix hex
-## add_wave /apatb_sha256_top/stateREG_i -into $tb_stateREG_group -radix hex
+## add_wave /apatb_sha256_top/LENGTH_istateREG_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_sha256_top/LENGTH_idata_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_sha256_top/LENGTH_ohash_V -into $tb_portdepth_group -radix hex
 ## set tbcoutputgroup [add_wave_group "C Outputs" -into $testbenchgroup]
-## set tb_hash_group [add_wave_group hash(memory) -into $tbcoutputgroup]
-## add_wave /apatb_sha256_top/hash_d1 -into $tb_hash_group -radix hex
-## add_wave /apatb_sha256_top/hash_we1 -into $tb_hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/hash_ce1 -into $tb_hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/hash_address1 -into $tb_hash_group -radix hex
-## add_wave /apatb_sha256_top/hash_d0 -into $tb_hash_group -radix hex
-## add_wave /apatb_sha256_top/hash_we0 -into $tb_hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/hash_ce0 -into $tb_hash_group -color #ffff00 -radix hex
-## add_wave /apatb_sha256_top/hash_address0 -into $tb_hash_group -radix hex
+## set tb_ohash_group [add_wave_group ohash(fifo) -into $tbcoutputgroup]
+## add_wave /apatb_sha256_top/ohash_V_write -into $tb_ohash_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/ohash_V_full_n -into $tb_ohash_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/ohash_V_din -into $tb_ohash_group -radix hex
 ## set tbcinputgroup [add_wave_group "C Inputs" -into $testbenchgroup]
-## set tb_data_group [add_wave_group data(wire) -into $tbcinputgroup]
-## add_wave /apatb_sha256_top/data -into $tb_data_group -radix hex
+## set tb_idata_group [add_wave_group idata(fifo) -into $tbcinputgroup]
+## add_wave /apatb_sha256_top/idata_V_read -into $tb_idata_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/idata_V_empty_n -into $tb_idata_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/idata_V_dout -into $tb_idata_group -radix hex
+## set tb_istateREG_group [add_wave_group istateREG(fifo) -into $tbcinputgroup]
+## add_wave /apatb_sha256_top/istateREG_V_read -into $tb_istateREG_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/istateREG_V_empty_n -into $tb_istateREG_group -color #ffff00 -radix hex
+## add_wave /apatb_sha256_top/istateREG_V_dout -into $tb_istateREG_group -radix hex
 ## save_wave_config sha256.wcfg
 ## run all
 ////////////////////////////////////////////////////////////////////////////////////
@@ -84,8 +76,8 @@ WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of o
 // RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
 ////////////////////////////////////////////////////////////////////////////////////
 // RTL Simulation : 0 / 1 [0.00%] @ "125000"
-// RTL Simulation : 1 / 1 [100.00%] @ "1675000"
+// RTL Simulation : 1 / 1 [100.00%] @ "2295000"
 ////////////////////////////////////////////////////////////////////////////////////
-$finish called at time : 1715 ns : File "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/sha256.autotb.v" Line 409
+$finish called at time : 2335 ns : File "C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/sim/verilog/sha256.autotb.v" Line 327
 ## quit
-INFO: [Common 17-206] Exiting xsim at Mon Jun 21 13:11:39 2021...
+INFO: [Common 17-206] Exiting xsim at Thu Jun 24 00:11:56 2021...

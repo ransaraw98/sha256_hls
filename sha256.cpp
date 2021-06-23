@@ -19,20 +19,18 @@
 void sha256(hls::stream<unsigned int> &istateREG,hls::stream<unsigned char> &idata,hls::stream<unsigned char> &ohash)
 {
 	WORD stateREG[8];
+	BYTE data[64];
+	BYTE hash[32];
 	load_State:for(int n=0; n < 8; n++){
 
 		istateREG.read(stateREG[n]);
 
 	}
-	BYTE data[64];
-	load_data:for(int n=0; n < 8; n++){
+	load_data:for(int n=0; n<64;n++){
 
 			idata.read(data[n]);
 
 		}
-	BYTE hash[32];
-
-
 	WORD a, b, c, d, e, f, g, h, i, j, t1, t2, m[64];
 
 	convert_to_words:for (i = 0, j = 0; i < 16; ++i, j += 4)

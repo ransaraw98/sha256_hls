@@ -57,6 +57,11 @@
 			<location>C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/.tcls</location>
 		</link>
 		<link>
+			<name>optimize_6/constraints</name>
+			<type>2</type>
+			<location>C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_6/.tcls</location>
+		</link>
+		<link>
 			<name>solution1/constraints</name>
 			<type>2</type>
 			<location>C:/Users/menuw/Documents/research/SHA256/hls/sha256/solution1/.tcls</location>
@@ -140,6 +145,21 @@
 			<name>optimize_5/constraints/script.tcl</name>
 			<type>1</type>
 			<location>C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_5/script.tcl</location>
+		</link>
+		<link>
+			<name>optimize_6/constraints/.xml.directive</name>
+			<type>1</type>
+			<location>C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_6/optimize_6.directive</location>
+		</link>
+		<link>
+			<name>optimize_6/constraints/directives.tcl</name>
+			<type>1</type>
+			<location>C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_6/directives.tcl</location>
+		</link>
+		<link>
+			<name>optimize_6/constraints/script.tcl</name>
+			<type>1</type>
+			<location>C:/Users/menuw/Documents/research/SHA256/hls/sha256/optimize_6/script.tcl</location>
 		</link>
 		<link>
 			<name>solution1/constraints/.xml.directive</name>
