@@ -7,7 +7,8 @@
 
 /*************************** HEADER FILES ***************************/
 #include <stddef.h>
-
+#include <hls_stream.h>
+#include <hls_vector.h>
 /****************************** MACROS ******************************/
 #define SHA256_BLOCK_SIZE 32            // SHA256 outputs a 32 byte digest
 #define ROTLEFT(a,b) (((a) << (b)) | ((a) >> (32-(b))))
@@ -24,6 +25,9 @@
 /**************************** DATA TYPES ****************************/
 typedef unsigned char BYTE;             // 8-bit byte
 typedef unsigned int  WORD;             // 32-bit word, change to "long" for 16-bit machines
+//typedef hls::vector<unsigned char,64> inputData; //vector data type for input
+//typedef hls::vector<unsigned int,8> prevState;   //vector data type for output
+//typedef hls::vector<unsigned char,SHA256_BLOCK_SIZE> outputHASH; //to store the output in big-endian and display
 
 /**************************** CONSTANTS ****************************/
 static const WORD k[64] = {
@@ -51,5 +55,5 @@ void sha256_init(SHA256_CTX *ctx);
 void pad(SHA256_CTX *ctx, const BYTE data[], size_t len);
 void sha256_final(SHA256_CTX *ctx, BYTE hash[]);
 */
-void sha256(WORD stateREG[], const BYTE data[],BYTE hash[32]);
+void sha256(hls::stream<unsigned int> &istateREG, hls::stream<unsigned char> &idata,hls::stream<unsigned char> &ohash);
 #endif   // SHA256_H

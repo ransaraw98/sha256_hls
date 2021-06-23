@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="sha256.h" path="C:\Users\menuw\Documents\research\SHA256\hls\sha256.h"/>
     <originFiles name="sha256.cpp" path="C:\Users\menuw\Documents\research\SHA256\hls\sha256.cpp"/>
+    <originFiles name="sha256.h" path="C:\Users\menuw\Documents\research\SHA256\hls\sha256.h"/>
   </source>
   <testbench>
     <originFiles name="shatest.cpp" path="C:\Users\menuw\Documents\research\SHA256\hls\shatest.cpp"/>

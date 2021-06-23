@@ -5,8 +5,8 @@
 ############################################################
 open_project sha256
 set_top sha256
-add_files sha256.cpp
 add_files sha256.h
+add_files sha256.cpp
 add_files -tb shatest.cpp -cflags "-DHW_COSIM -Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 open_solution "optimize_1" -flow_target vivado
 set_part {xcvu11p-flga2577-1-e}

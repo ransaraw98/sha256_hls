@@ -1712,3 +1712,503 @@ INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satis
 INFO: [HLS 200-789] **** Estimated Fmax: 298.86 MHz
 INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 6 seconds. CPU system time: 1 seconds. Elapsed time: 13.324 seconds; current allocated memory: 234.346 MB.
 INFO: [HLS 200-112] Total CPU user time: 10 seconds. Total CPU system time: 3 seconds. Total elapsed time: 16.742 seconds; peak allocated memory: 234.164 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.388 seconds; current allocated memory: 191.922 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.893 seconds; current allocated memory: 191.922 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.927 seconds; current allocated memory: 191.922 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.869 seconds; current allocated memory: 191.921 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.57 seconds; current allocated memory: 191.951 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.547 seconds; current allocated memory: 191.952 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.902 seconds; current allocated memory: 191.952 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.012 seconds; current allocated memory: 191.952 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.05 seconds; current allocated memory: 191.952 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 1.015 seconds; current allocated memory: 191.952 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 1.081 seconds; current allocated memory: 191.968 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 1 seconds; current allocated memory: 191.968 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.011 seconds; current allocated memory: 191.968 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -setup -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] CSim file generation failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.122 seconds; current allocated memory: 191.967 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.112 seconds; current allocated memory: 191.967 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.004 seconds; current allocated memory: 191.968 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 1.054 seconds; current allocated memory: 191.968 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 4.058 seconds; current allocated memory: 191.918 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 3.734 seconds; current allocated memory: 191.919 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu11p-flga2577-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -output C:/Users/menuw/Documents/research/SHA256/hls/exported_RTL/Verilog/sha256.zip -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/convert_to_words 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/create_schedule 
+INFO: [HLS 200-1510] Running: set_directive_pipeline sha256/compression 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 4 sha256/convert_endianess 
+INFO: [HLS 200-1510] Running: set_directive_top -name sha256 sha256 
+INFO: [HLS 200-1510] Running: set_directive_array_partition -type complete -factor 8 -dim 1 sha256 m 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.542 seconds; current allocated memory: 191.918 MB.

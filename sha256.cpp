@@ -7,20 +7,31 @@
 #include <stdlib.h>
 #include <memory.h>
 #include "sha256.h"
+#include <hls_stream.h>
+#include <hls_vector.h>
+
+/*************************** DATA TYPES *****************************/
+
+
 
 /*********************** FUNCTION DEFINITIONS ***********************/
 
-void sha256(WORD stateREG[], const BYTE data[],BYTE hash[32])
+void sha256(hls::stream<unsigned int> &istateREG,hls::stream<unsigned char> &idata,hls::stream<unsigned char> &ohash)
 {
-	/*WORD stateREG[8];
-	BYTE data[64];
-	//BYTE hash[32];
-	copy1:for(int iter = 7; iter >=0; iter--)
-		stateREG[iter] = FstateREG[iter];
+	WORD stateREG[8];
+	load_State:for(int n=0; n < 8; n++){
 
-	copy2:for(int iter = 0; iter <64; iter++)
-			data[iter] = Fdata[iter];
-*/
+		istateREG.read(stateREG[n]);
+
+	}
+	BYTE data[64];
+	load_data:for(int n=0; n < 8; n++){
+
+			idata.read(data[n]);
+
+		}
+	BYTE hash[32];
+
 
 	WORD a, b, c, d, e, f, g, h, i, j, t1, t2, m[64];
 
@@ -80,5 +91,12 @@ void sha256(WORD stateREG[], const BYTE data[],BYTE hash[32])
 		hash[r + 24] = (stateREG[6] >> (24 - r * 8)) & 0x000000ff;
 		hash[r + 28] = (stateREG[7] >> (24 - r * 8)) & 0x000000ff;
 	}
+
+	store_hash:for(int n=0; n < 32; n++){
+
+			ohash.write(hash[n]);
+
+			}
+
 
 }
